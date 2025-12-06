@@ -291,3 +291,53 @@ h2 {
     left: 15px;
     transform-origin: bottom left; 
 }
+/* * ------------------------------------
+ * BỔ SUNG: HIỆU ỨNG BẢNG MẠCH CHO NAVBAR
+ * ------------------------------------
+ */
+
+@keyframes circuit-flow {
+    from {
+        background-position: 0% 0%; /* Bắt đầu từ bên trái */
+    }
+    to {
+        background-position: 100% 0%; /* Kết thúc ở bên phải */
+    }
+}
+.navbar {
+    position: relative; /* Cần position relative để pseudo-element định vị */
+    overflow: hidden; /* Cắt bớt phần tràn của hiệu ứng */
+    /* Giữ nguyên các thuộc tính padding, display, v.v. */
+}
+
+/* Tạo lớp phủ (Overlay) cho hiệu ứng */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* Kích thước gấp đôi để có thể di chuyển */
+    height: 100%;
+    
+    /* Thiết lập nền lặp lại mô phỏng bảng mạch */
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(64, 224, 208, 0.2), /* Màu Turquoise mờ */
+        rgba(64, 224, 208, 0.2) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    background-size: 40px 40px; /* Kích thước của mỗi ô pattern */
+    
+    /* Áp dụng hoạt ảnh */
+    animation: circuit-flow 30s linear infinite; /* Chạy liên tục và chậm (30s) */
+    opacity: 0.5; /* Độ trong suốt để hiệu ứng không quá choáng */
+    z-index: 1; /* Đảm bảo nằm dưới text */
+}
+
+/* Đảm bảo link và logo vẫn nằm trên lớp phủ */
+.navbar .logo,
+.navbar .nav-links a {
+    position: relative;
+    z-index: 2;
+}
