@@ -92,12 +92,11 @@ h2 {
     width: 100%;
     height: 100%;
     
-    /* SỬA LỖI: Tạo dải sáng màu Turquoise trên nền Cam */
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.6) 5%, /* Dải sáng trắng mờ */
-        var(--turquoise) 10%, /* Dải chính (Turquoise Rực) */
+        rgba(255, 255, 255, 0.6) 5%, 
+        rgba(64, 224, 208, 0.8) 10%, 
         transparent 20% 
     );
     background-size: 50% 100%; 
@@ -108,7 +107,7 @@ h2 {
 }
 
 .logo a {
-    color: var(--dark-text); /* CHỮ TỐI */
+    color: var(--dark-text); 
     font-size: 1.5em;
     font-weight: bold;
     position: relative; 
@@ -116,7 +115,7 @@ h2 {
 }
 
 .nav-links a {
-    color: var(--dark-text); /* CHỮ TỐI */
+    color: var(--dark-text); 
     margin-left: 20px;
     font-weight: 500;
     position: relative;
@@ -187,49 +186,3 @@ h2 {
     width: 240px;
     height: 240px;
     overflow: hidden;
-    border-radius: 50%;
-    border: 3px solid var(--turquoise);
-}
-
-.profile-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-#about::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.studying-tag {
-    background-color: var(--orange-text); 
-    color: var(--navbar-text);
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-right: 15px;
-    display: inline-block;
-}
-
-/* --- TIMELINE/LIST STYLES --- */
-.timeline-content h3 {
-    margin-top: 20px;
-    color: var(--dark-text);
-}
-
-/* --- 5. PROJECTS SECTION STYLES (Nền Cam Sáng) --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    background-color: var(--orange-text); 
-    color: var(--dark-text); 
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--
