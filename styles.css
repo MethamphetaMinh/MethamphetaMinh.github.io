@@ -356,3 +356,30 @@ strong {
     margin-bottom: 70px;
     text-align: center;
 }
+/* --- 6. HIỆU ỨNG TETRIS --- */
+@keyframes tetris-fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    80% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+.tetris-effect {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 15px;
+    --delay-1: 0s;
+    --delay-2: 2s;
+}
+
+.tetris-effect::before, .tetris-effect::after {
+    content: ''; position: absolute; width: 10px; height: 10px; border: 1px solid var(--dark-text);
+    box-shadow: 0 0 5px rgba(64, 224, 208, 0.5); animation: tetris-fall 6s ease-out infinite;
+}
+
+.tetris-effect::before { background-color: var(--turquoise); animation-delay: var(--delay-1); top: 5px; left: 0; }
+.tetris-effect::after { background-color: var(--orange-text); animation-delay: var(--delay-2); top: 0; left: 15px; transform-origin: bottom left;
+}
