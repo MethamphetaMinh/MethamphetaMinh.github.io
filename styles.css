@@ -21,6 +21,7 @@ body {
 }
 
 /* ==================== NAVBAR ==================== */
+/* ==================== NAVBAR – ĐẸP CHUẨN NHƯ HÌNH BÊN PHẢI ==================== */
 @keyframes scanline {
     0%   { background-position: -300% 0; }
     100% { background-position: 300% 0; }
@@ -28,66 +29,88 @@ body {
 
 .navbar {
     position: fixed;
-    top: 0; left: 0; width: 100%;
-    padding: 18px 5%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
     overflow: hidden;
-    border-bottom: 3px solid var(--dark-text);
+    border-bottom: 4px solid #333;
+
+    /* GRADIENT MƯỢT MÀ 70% CAM → 30% TURQUOISE – CHUẨN 100% */
     background: linear-gradient(to right,
-        var(--orange)    0%,
-        var(--orange)    70%,
-        var(--turquoise) 70%,
-        var(--turquoise) 100%
+        #ff7f50 0%,
+        #ff7f50 70%,
+        /* Cam kéo dài đến đúng 70% */
+        #40E0D0 70.01%,     /* Turquoise bắt đầu ngay sau 70% */
+        #40E0D0 100%
     );
-    transition: all var(--transition);
+
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Hover → đảo ngược mượt mà 30% cam → 70% turquoise */
 .navbar:hover {
     background: linear-gradient(to right,
-        var(--orange)    0%,
-        var(--orange)    30%,
-        var(--turquoise) 30%,
-        var(--turquoise) 100%
+        #ff7f50 0%,
+        #ff7f50 30%,
+        #40E0D0 30.01%,
+        #40E0D0 100%
     );
-    border-bottom-color: var(--turquoise);
-    box-shadow: 0 12px 40px rgba(64, 224, 208, 0.5);
-    transform: translateY(-6px);
+    border-bottom-color: #40E0D0;
+    box-shadow: 0 15px 40px rgba(64, 224, 208, 0.6);
+    transform: translateY(-8px);
 }
 
+/* Hiệu ứng tia sáng quét ngang (giữ nguyên đẹp) */
 .navbar::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg,
         transparent,
-        rgba(255,255,255,0.25) 12%,
-        rgba(64,224,208,0.75) 18%,
-        transparent 28%
+        rgba(255,255,255,0.3) 15%,
+        rgba(64,224,208,0.8) 22%,
+        transparent 35%
     );
     background-size: 300% 100%;
-    animation: scanline 11s linear infinite;
+    animation: scanline 12s linear infinite;
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 0.7;
     z-index: 1;
     transition: opacity 0.6s;
 }
 
-.navbar:hover::before { opacity: 0.35; }
+.navbar:hover::before {
+    opacity: 0.3;
+}
 
-.logo a, .nav-links a {
+/* Chữ luôn nổi trên cùng */
+.logo a,
+.nav-links a {
     position: relative;
     z-index: 10;
     color: #000 !important;
-    font-weight: 700;
+    font-weight: 800;
     text-decoration: none;
+    font-size: 1.1rem;
 }
 
-.logo a { font-size: 1.9rem; }
-.nav-links a { margin-left: 32px; font-size: 1.1rem; }
-.nav-links a:hover { color: #111 !important; }
+.logo a {
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    margin-left: 35px;
+}
+
+.nav-links a:hover {
+    color: #000;
+}
 
 /* ==================== CÁC PHẦN KHÁC ==================== */
 section { padding: 120px 5% 80px; max-width: 1200px; margin: 0 auto; }
