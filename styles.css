@@ -175,21 +175,4 @@ h2 {
     padding: 12px 30px;
     margin-top: 30px;
     background
-/* CSS ẢNH ĐẠI DIỆN TRONG ABOUT */
-/* CSS ẢNH ĐẠI DIỆN TRONG ABOUT */
-.profile-img-container {
-    float: right;
-    margin-left: 20px;
-    width: 200px; /* SỬA: Kích thước cân đối hơn */
-    height: 200px; /* SỬA: Kích thước cân đối hơn */
-    overflow: hidden;
-    border-radius: 50%;
-    border: 3px solid var(--turquoise);
-}
 
-.profile-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Đảm bảo hình ảnh được cắt để vừa với khung tròn mà không bị méo */
-}
-/* Giữ nguyên các quy tắc khác */
