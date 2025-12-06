@@ -1,11 +1,11 @@
 /* ===================================
-   HA TUAN MINH PORTFOLIO – PHIÊN BẢN ỔN ĐỊNH & ĐẸP NHẤT (NHƯ CŨ)
+   HA TUAN MINH PORTFOLIO – FINAL CSS (ĐÃ CHỈNH ẢNH TO HƠN + ĐẸP HƠN)
    =================================== */
 
 :root {
-    --orange: #ff7f50;
+    --orange:    #ff7f50;
     --turquoise: #40E0D0;
-    --light-bg: #ffffff;
+    --light-bg:  #ffffff;
     --dark-text: #333333;
     --transition: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -20,7 +20,8 @@ body {
     scroll-behavior: smooth;
 }
 
-/* ==================== NAVBAR ĐẸP ỔN ĐỊNH ==================== */
+/* ==================== NAVBAR ==================== */
+/* ==================== NAVBAR – SIÊU PHẨM CÓ SCAN FLOW ĐỈNH CAO ==================== */
 @keyframes scan-flow {
     0%   { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
@@ -28,38 +29,357 @@ body {
 
 .navbar {
     position: fixed;
-    top: 0; left: 0; width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 20px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
     overflow: hidden;
-    background: linear-gradient(90deg, #ff7f50 0%, #ff8c61 35%, #40E0D0 70%, #40E0D0 100%);
-    border-bottom: 3px solid rgba(0,0,0,0.25);
     backdrop-filter: blur(12px);
-    transition: all 0.7s ease;
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Gradient nền chính – mượt mà cam → turquoise */
+    background: linear-gradient(90deg,
+        #ff7f50 0%,
+        #ff8c61 35%,
+        #40E0D0 70%,
+        #40E0D0 100%
+    );
+
+    border-bottom: 3px solid rgba(0,0,0,0.25);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Hover → đảo màu + nổi lên */
 .navbar:hover {
-    background: linear-gradient(90deg, #40E0D0 0%, #5be8d8 35%, #ff7f50 70%, #ff7f50 100%);
+    background: linear-gradient(90deg,
+        #40E0D0 0%,
+        #5be8d8 35%,
+        #ff7f50 70%,
+        #ff7f50 100%
+    );
     transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(64,224,208,0.5);
+    box-shadow: 0 15px 40px rgba(64, 224, 208, 0.6);
     border-bottom-color: #ff7f50;
 }
 
+/* SCAN FLOW SIÊU ĐẸP – tia sáng quét ngang liên tục */
 .navbar::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.15), transparent);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
     transform: translateX(-100%);
     animation: scan-flow 3.5s linear infinite;
     pointer-events: none;
     z-index: 1;
 }
 
-.logo a, .nav-links a {
+/* Thêm một lớp scan flow mạnh hơn khi hover */
+.navbar:hover::before {
+    animation-duration: 2s; /* quét nhanh hơn khi hover */
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+}
+
+/* Chữ luôn nổi bật trên mọi hiệu ứng */
+.logo a,
+.nav-links a {
     position: relative;
     z-index: 10;
-    color: #000
+    color: #000 !important;
+    font-weight: 900;
+    text-decoration: none;
+    transition: all 0.4s;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.logo a {
+    font-size: 2.1rem;
+    letter-spacing: 1.5px;
+}
+
+.nav-links a {
+    margin-left: 38px;
+    font-size: 1.2rem;
+}
+
+.nav-links a:hover {
+    color: #000 !important;
+    transform: scale(1.1);
+}
+/* ==================== CÁC PHẦN KHÁC ==================== */
+section { padding: 120px 5% 80px; max-width: 1200px; margin: 0 auto; }
+
+h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Hero */
+.hero { text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 100px; }
+.hero h1 { font-size: 4.5rem; margin-bottom: 20px; color: var(--dark-text); }
+.hero h1 span { color: var(--turquoise); }
+.hero p { font-size: 1.5rem; color: #555; margin: 20px 0; }
+
+.cta-button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 16px 40px;
+    background: var(--turquoise);
+    color:#000;
+    font-weight:bold;
+    border-radius:50px;
+    transition:all .4s;
+}
+.cta-button:hover { background:#36c3b6; transform:translateY(-6px); box-shadow:0 15px 30px rgba(64,224,208,.4); }
+
+/* ABOUT – ẢNH ĐÃ ĐƯỢC PHÓNG TO ĐẸP HƠN */
+#about h2 { color: var(--turquoise) !important; }
+
+.profile-img-container {
+    float: right;
+    margin: 0 0 30px 50px;        /* tăng khoảng cách cho thoáng */
+    width: 260px;                 /* từ 200px → 260px (to hơn, đẹp hơn) */
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 7px solid var(--turquoise);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    transition: all 0.4s ease;
+}
+
+.profile-img-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(64,224,208,0.4);
+}
+
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Các phần còn lại giữ nguyên đẹp */
+.studying-tag {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin: 10px 12px 10px 0;
+}
+
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px,1fr)); gap:35px; margin-top:30px; }
+
+.project-card {
+    background: var(--orange);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    transition: all .4s;
+}
+.project-card:hover { transform: translateY(-20px); box-shadow: 0 25px 50px rgba(0,0,0,.35); }
+
+.project-card img { width:100%; height:220px; object-fit:cover; }
+.project-info { padding:25px; }
+.project-info h3 { color:#000; margin-bottom:12px; }
+.project-card a { color: var(--turquoise); font-weight:bold; }
+
+#contact h2 { color: var(--turquoise) !important; }
+
+/* Email & GitHub link – màu coral đồng bộ */
+.personal-info a,
+#contact a,
+footer a,
+a[href^="mailto:"],
+a[href^="https://github.com"] {
+    color: var(--orange) !important;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.personal-info a:hover,
+#contact a:hover,
+footer a:hover,
+a[href^="mailto:"]:hover,
+a[href^="https://github.com"]:hover {
+    color: #ff6b3d !important;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-img-container { width: 180px; height: 180px; margin: 0 0 20px 20px; }
+    .navbar { padding: 15px 5%; }
+    .hero h1 { font-size: 3rem; }
+}
+/* ==================== ABOUT SECTION – CHỮ TO HƠN, ĐẸP HƠN ==================== */
+
+/* Tiêu đề ABOUT ME to hơn + đậm + có bóng nhẹ */
+#about h2 {
+    font-size: 4.5rem !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #ff7f50 !important;
+    text-shadow:
+        3px 3px 0 #40E0D0,
+        6px 6px 15px rgba(0,0,0,0.2);
+    margin-bottom: 70px;
+}
+/* Đoạn giới thiệu bản thân – chữ to hơn, line-height thoải mái */
+#about p,
+#about .intro-text {
+    font-size: 1.35rem !important;       /* từ ~1rem lên 1.35rem */
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 25px;
+    max-width: 800px;
+}
+
+/* Các tiêu đề nhỏ: Education, Research, Skills… */
+#about h3,
+.education h3,
+.research h3,
+.skills h3 {
+    font-size: 1.8rem !important;
+    color: var(--orange);
+    margin: 35px 0 15px 0;
+    font-weight: 800;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Thêm thanh dọc màu turquoise bên trái cho đẹp */
+#about h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 70%;
+    background: var(--turquoise);
+    border-radius: 3px;
+}
+
+/* Nội dung dưới các tiêu đề nhỏ – chữ to hơn + đẹp */
+#about ul,
+#about li,
+.timeline-content p {
+    font-size: 1.25rem !important;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+/* Tên trường, kỹ năng… làm nổi bật hơn */
+strong {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+/* Email & GitHub link to hơn + đẹp hơn */
+.personal-info a,
+#about a[href^="mailto:"],
+#about a[href^="https://github.com"] {
+    font-size: 1.4rem !important;
+    font-weight: 700;
+}
+.footer-bar {
+    width: 100%;
+    height: 12px;                   /* dày ~0.7–0.8cm */
+    background: linear-gradient(90deg,
+        #ff7f50 0%,
+        #ff9966 30%,
+        #40E0D0 70%,
+        #40E0D0 100%
+    );
+    margin-top: 120px;
+    box-shadow:
+        0 -6px 20px rgba(255,127,80,0.6),
+        0 -10px 30px rgba(64,224,208,0.5);
+    border-radius: 6px 6px 0 0;
+}
+/* ==================== FEATURED SKILLS – MÀU CORAL ĐẸP, KHÔNG GRADIENT ==================== */
+
+/* Nếu tiêu đề là <h2> */
+#skills h2,
+.skills h2,
+.featured-skills h2 {
+    font-size: 4rem !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ff7f50 !important;               /* Màu coral chính xác */
+    text-shadow:
+        3px 3px 0 #40E0D0,
+        6px 6px 20px rgba(0,0,0,0.2);
+    margin-bottom: 70px;
+    text-align: center;
+}
+/* ==================== FEATURED PROJECTS – MÀU CORAL ĐẸP, KHÔNG GRADIENT ==================== */
+#projects h2,
+.projects h2,
+.featured-projects h2 {
+    font-size: 4.2rem !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ff7f50 !important;                 /* Màu coral chuẩn */
+    text-shadow:
+        3px 3px 0 #40E0D0,
+        6px 6px 20px rgba(0,0,0,0.2);
+    margin-bottom: 70px;
+    text-align: center;
+}
+/* --- 6. HIỆU ỨNG TETRIS --- */
+@keyframes tetris-fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    80% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+.tetris-effect {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 15px;
+    --delay-1: 0s;
+    --delay-2: 2s;
+}
+
+.tetris-effect::before, .tetris-effect::after {
+    content: ''; position: absolute; width: 10px; height: 10px; border: 1px solid var(--dark-text);
+    box-shadow: 0 0 5px rgba(64, 224, 208, 0.5); animation: tetris-fall 6s ease-out infinite;
+}
+
+.tetris-effect::before { background-color: var(--turquoise); animation-delay: var(--delay-1); top: 5px; left: 0; }
+.tetris-effect::after { background-color: var(--orange-text); animation-delay: var(--delay-2); top: 0; left: 15px; transform-origin: bottom left;
+}
