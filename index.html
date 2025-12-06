@@ -126,4 +126,180 @@
             margin-right: 15px;
         }
 
-        .
+        .studying-tag {
+            display: inline-block;
+            background-color: var(--highlight-bg);
+            color: var(--dark-text);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .research-section {
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+        
+        /* Image styles */
+        .profile-img-container {
+            float: right;
+            margin-left: 20px;
+            width: 180px;
+            height: 180px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 3px solid var(--turquoise);
+        }
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #about::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--turquoise);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .project-info {
+            padding: 15px;
+        }
+
+        .project-info h3 {
+            color: var(--turquoise);
+            margin-top: 0;
+        }
+
+        /* --- CONTACT/FOOTER --- */
+        #contact p, #contact a {
+            color: var(--light-text); /* Ensure text/links are visible */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="#">Ha Tuan Minh</a>
+        </div>
+        <nav class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <p>Hello, I'm</p>
+        <h1>Ha Tuan Minh, a <span class="highlight">Creative Designer & Developer</span></h1>
+        <p>I create modern and efficient user experiences.</p>
+        <a href="#projects" class="cta-button">View My Work</a>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                 <img src="images/project1_thumb.png" alt="Project 1 Thumbnail">
+                <div class="project-info">
+                    <h3>Project Name 1</h3>
+                    <p>Designed UX/UI for a mobile financial management application.</p>
+                    <a href="#">Details &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="images/project2_thumb.png" alt="Project 2 Thumbnail">
+                <div class="project-info">
+                    <h3>Project Name 2</h3>
+                    <p>Developed an e-commerce website using React framework.</p>
+                    <a href="#">Details &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        
+        <div class="profile-img-container">
+            <img src="images/profile.jpg" alt="Profile Picture">
+        </div>
+        
+        <div class="personal-info">
+            <p>I am a **Student at Foreign Trade University in Ha Noi, Viet Nam**.</p>
+            
+            <p>I'm interested in **automation and artificial intelligence**, particularly how they can be applied to optimize processes and create smart solutions.</p>
+            
+            <p>
+                <a href="mailto:herewego@gmailc.om">Email</a> / 
+                <a href="URL_GITHUB">Github</a>
+            </p>
+        </div>
+        
+        <div class="research-section">
+            <h3 style="color: var(--light-text);">Research</h3>
+            <p>I focus on computer vision, deep learning, generative AI, and image processing.</p>
+        </div>
+        
+        <div style="margin-top: 20px; display: flex; align-items: center;">
+            <span class="studying-tag">Studying</span>
+            <a href="URL_TRUONG" style="color: var(--turquoise); text-decoration: none; font-weight: bold;">Foreign Trade University</a>
+        </div>
+        
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-list" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <div class="skill-category">
+                <strong style="color: var(--turquoise);">Computer Vision & AI</strong>
+                <span class="skill-tag" style="display: inline-block; background-color: var(--dark-card); color: var(--light-text); padding: 5px 15px; border-radius: 20px; margin: 5px; border: 1px solid var(--turquoise);">Python</span>
+                <span class="skill-tag" style="display: inline-block; background-color: var(--dark-card); color: var(--light-text); padding: 5px 15px; border-radius: 20px; margin: 5px; border: 1px solid var(--turquoise);">PyTorch / TensorFlow</span>
+            </div>
+            <div class="skill-category">
+                <strong style="color: var(--turquoise);">Web Development</strong>
+                <span class="skill-tag" style="display: inline-block; background-color: var(--dark-card); color: var(--light-text); padding: 5px 15px; border-radius: 20px; margin: 5px; border: 1px solid var(--turquoise);">HTML5 / CSS3</span>
+                <span class="skill-tag" style="display: inline-block; background-color: var(--dark-card); color: var(--light-text); padding: 5px 15px; border-radius: 20px; margin: 5px; border: 1px solid var(--turquoise);">React / Vue</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <h2>Contact</h2>
+        <p>I'm currently open for new projects or collaborations.</p>
+        
+        <a href="mailto:herewego@gmailc.om" class="cta-button">
+            Email Me: herewego@gmailc.om
+        </a>
+        
+        </section>
+
+    <footer>
+        <p style="text-align: center; padding: 20px; font-size: 0.8em; border-top: 1px solid var(--border-color); color: var(--light-text);">&copy; 2025 Ha Tuan Minh. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
