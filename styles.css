@@ -1,18 +1,27 @@
 /*
 ====================================
   STYLES.CSS - HA TUAN MINH PORTFOLIO
-  THEME: Light (Nền Trắng) with Turquoise & Orange Accent
+  THEME: Light Body (Trắng Ngà) with Dark/Turquoise Navbar
 ====================================
 */
 
 /* --- 1. KHAI BÁO BIẾN VÀ RESET --- */
 :root {
-    --turquoise: #40E0D0; /* Màu Chủ Đạo */
-    --light-bg: #FFFBD1; /* Nền Trắng */
+    /* Màu Sắc Chính */
+    --turquoise: #40E0D0; 
+    --orange-text: #FFA500; 
+
+    /* Màu Nền Toàn Trang (BODY) */
+    --light-bg: #FFFBD1; /* Nền Trắng Ngà */
     --dark-text: #333333; /* Chữ Tối (Chữ chính) */
-    --orange-text: #FFA500; /* Màu Cam Sáng (Điểm nhấn) */
-    --card-bg: #F0F0F0; /* Nền card phụ (Xám nhạt) */
     --border-color: #DDDDDD; /* Màu đường viền/phân cách */
+
+    /* MÀU SẮC ĐẶC BIỆT CỦA NAVBAR & CARD PROJECT */
+    --navbar-bg: #1A1A1A; /* Nền Tối cho Navbar */
+    --navbar-text: #F7F7F7; /* Chữ sáng trên Navbar */
+    --card-bg: #F0F0F0; /* Nền card phụ (Xám nhạt cho Hero) */
+    --dark-card: #333333; /* Nền Card Project màu tối */
+    
     --transition-speed: 0.3s;
 }
 
@@ -23,11 +32,11 @@
 }
 
 body {
-    font-family: Akashi, sans-serif;
+    font-family: Akashi, sans-serif; 
     line-height: 1.6;
     scroll-behavior: smooth;
-    background-color: var(--light-bg);
-    color: var(--dark-text);
+    background-color: var(--light-bg); 
+    color: var(--dark-text); 
 }
 
 a {
@@ -37,7 +46,7 @@ a {
 }
 
 a:hover {
-    color: #36c3b6; /* Turquoise đậm hơn khi hover */
+    color: #36c3b6;
 }
 
 section {
@@ -47,54 +56,79 @@ section {
 }
 
 h2 {
-    /* Đảm bảo tiêu đề H2 luôn căn giữa, ghi đè các quy tắc khác */
     text-align: center; 
-    
     font-size: 2.5em;
     margin-bottom: 40px;
     color: var(--turquoise);
     text-transform: uppercase;
 }
 
-/* --- 2. NAVIGATION BAR --- */
+/* --- 2. NAVIGATION BAR (MÀU TỐI & HIỆU ỨNG MẠCH) --- */
+@keyframes circuit-flow {
+    from { background-position: 0% 0%; }
+    to { background-position: 100% 0%; }
+}
+
 .navbar {
-    background-color: var(--light-bg);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--navbar-bg); 
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--turquoise);
+}
+
+/* TẠO HIỆU ỨNG BẢNG MẠCH */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(64, 224, 208, 0.2), 
+        rgba(64, 224, 208, 0.2) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    background-size: 40px 40px;
+    animation: circuit-flow 30s linear infinite;
+    opacity: 0.5;
+    z-index: 1; 
 }
 
 .logo a {
     color: var(--turquoise);
     font-size: 1.5em;
     font-weight: bold;
+    position: relative; 
+    z-index: 2;
 }
 
 .nav-links a {
-    color: var(--dark-text);
+    color: var(--navbar-text); 
     margin-left: 20px;
     font-weight: 500;
+    position: relative;
+    z-index: 2;
 }
 
-/* --- 3. HERO SECTION --- */
-/* --- SỬA: Phóng to chữ Hello và mô tả ngắn --- */
-/* --- 3. HERO SECTION --- */
-/* --- SỬA: Phóng to chữ Hello và mô tả ngắn --- */
+/* --- 3. HERO SECTION (Nền Trắng Ngà) --- */
 .hero-subtext {
-    font-size: 1.25em; /* Kích thước chữ lớn hơn */
+    font-size: 1.25em; 
     margin-bottom: 5px; 
 }
 
 .hero {
     text-align: center;
     padding: 100px 5%;
-    /* XÓA: background-color: var(--card-bg); */
-    background-color: var(--light-bg); /* SỬA: Dùng nền trắng chính */
+    background-color: var(--light-bg); 
 }
 
 .hero h1 {
@@ -102,7 +136,11 @@ h2 {
     margin-bottom: 10px;
     color: var(--dark-text);
 }
-/* ... giữ nguyên các thuộc tính khác ... */
+
+.hero h1 span {
+    color: var(--turquoise);
+    font-weight: bold;
+}
 
 .cta-button {
     display: inline-block;
@@ -129,27 +167,25 @@ h2 {
 
 #about h2 {
     text-align: left; 
-    color: var(--dark-text); /* Tiêu đề Giới thiệu màu tối */
+    color: var(--dark-text);
     margin-bottom: 10px;
 }
 
 .personal-info a {
-    color: var(--orange-text); /* Liên kết Email/Github màu Cam Sáng */
+    color: var(--orange-text);
     margin-right: 15px;
 }
 
-/* Ảnh đại diện */
 /* CSS ẢNH ĐẠI DIỆN TRONG ABOUT */
 .profile-img-container {
     float: right;
     margin-left: 20px;
-    width: 240px; /* SỬA: Phóng to hơn (ví dụ: 240px) */
-    height: 240px; /* SỬA: Phóng to hơn (ví dụ: 240px) */
+    width: 240px;
+    height: 240px;
     overflow: hidden;
     border-radius: 50%;
     border: 3px solid var(--turquoise);
 }
-/* ... giữ nguyên các thuộc tính khác ... */
 
 .profile-img-container img {
     width: 100%;
@@ -157,34 +193,23 @@ h2 {
     object-fit: cover;
 }
 
-/* Clear float sau phần About */
 #about::after {
     content: "";
     display: table;
     clear: both;
 }
 
-.research-section {
-    margin-top: 30px;
-    border-top: 1px solid var(--border-color);
-    padding-top: 20px;
-}
-
-.research-section h3 {
-    color: var(--dark-text);
-}
-
 .studying-tag {
-    display: inline-block;
-    background-color: var(--orange-text); /* Tag Studying màu Cam Sáng */
-    color: var(--light-bg); /* Chữ trắng */
+    background-color: var(--orange-text); 
+    color: var(--navbar-text);
     padding: 10px 15px;
     border-radius: 5px;
     font-weight: bold;
     margin-right: 15px;
+    display: inline-block;
 }
 
-/* --- PROJECTS SECTION STYLES --- */
+/* --- 5. PROJECTS SECTION STYLES (Nền Cam Sáng) --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -192,8 +217,8 @@ h2 {
 }
 
 .project-card {
-    background-color: var(--orange-text); /* SỬA: Dùng màu Cam Sáng làm nền */
-    color: var(--dark-bg); /* Chữ tối trên nền cam */
+    background-color: var(--orange-text); 
+    color: var(--dark-text); 
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -206,34 +231,17 @@ h2 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-.project-card img {
-    /* Giữ nguyên kích thước ảnh */
-    width: 100%;
-    height: auto; 
-}
-
-.project-info {
-    padding: 15px;
-}
-
 .project-info h3 {
-    color: var(--dark-bg); /* Tiêu đề màu tối trên nền cam */
+    color: var(--dark-text);
     margin-top: 0;
 }
-/* Đảm bảo link chi tiết vẫn dùng màu tối hoặc màu Turquoise tương phản */
+
 .project-card a { 
     color: var(--turquoise);
     font-weight: bold;
 }
-/* * ------------------------------------
- * BỔ SUNG: HIỆU ỨNG TETRIS 
- * ------------------------------------
- */
 
-/* * ------------------------------------
- * SỬA LỖI: HIỆU ỨNG TETRIS 
- * ------------------------------------
- */
+/* --- 6. HIỆU ỨNG TETRIS (ĐÃ SỬA LỖI LOGIC BIẾN) --- */
 
 @keyframes tetris-fall {
     0% {
@@ -245,6 +253,7 @@ h2 {
     }
     80% {
         transform: translateY(0) rotate(0deg);
+        opacity: 1; /* Đảm bảo khối hiển thị khi ở vị trí cuối */
     }
     100% {
         opacity: 0.2;
@@ -254,90 +263,5 @@ h2 {
 .tetris-effect {
     display: inline-block;
     position: relative;
-    width: 25px; 
-    height: 30px; 
-    vertical-align: middle;
-    margin-right: 15px;
-    /* KHAI BÁO BIẾN CỤC BỘ ĐỂ ĐỘ TRỄ HOẠT ĐỘNG */
-    --delay-1: 0s;
-    --delay-2: 2s;
-}
-
-/* Định nghĩa chung cho các khối */
-.tetris-effect::before,
-.tetris-effect::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border: 1px solid var(--dark-text); 
-    box-shadow: 0 0 5px rgba(64, 224, 208, 0.5); 
-    animation: tetris-fall 6s ease-out infinite;
-}
-
-/* Khối 1 (Turquoise) */
-.tetris-effect::before {
-    background-color: var(--turquoise); 
-    animation-delay: var(--delay-1); /* ÁP DỤNG ĐỘ TRỄ ĐÃ KHAI BÁO TRÊN TETRIS-EFFECT */
-    top: 5px;
-    left: 0;
-}
-
-/* Khối 2 (Cam Sáng) */
-.tetris-effect::after {
-    background-color: var(--orange-text); 
-    animation-delay: var(--delay-2); /* ÁP DỤNG ĐỘ TRỄ ĐÃ KHAI BÁO TRÊN TETRIS-EFFECT */
-    top: 0;
-    left: 15px;
-    transform-origin: bottom left; 
-}
-/* * ------------------------------------
- * BỔ SUNG: HIỆU ỨNG BẢNG MẠCH CHO NAVBAR
- * ------------------------------------
- */
-
-@keyframes circuit-flow {
-    from {
-        background-position: 0% 0%; /* Bắt đầu từ bên trái */
-    }
-    to {
-        background-position: 100% 0%; /* Kết thúc ở bên phải */
-    }
-}
-.navbar {
-    position: relative; /* Cần position relative để pseudo-element định vị */
-    overflow: hidden; /* Cắt bớt phần tràn của hiệu ứng */
-    /* Giữ nguyên các thuộc tính padding, display, v.v. */
-}
-
-/* Tạo lớp phủ (Overlay) cho hiệu ứng */
-.navbar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%; /* Kích thước gấp đôi để có thể di chuyển */
-    height: 100%;
-    
-    /* Thiết lập nền lặp lại mô phỏng bảng mạch */
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(64, 224, 208, 0.2), /* Màu Turquoise mờ */
-        rgba(64, 224, 208, 0.2) 10px,
-        transparent 10px,
-        transparent 20px
-    );
-    background-size: 40px 40px; /* Kích thước của mỗi ô pattern */
-    
-    /* Áp dụng hoạt ảnh */
-    animation: circuit-flow 30s linear infinite; /* Chạy liên tục và chậm (30s) */
-    opacity: 0.5; /* Độ trong suốt để hiệu ứng không quá choáng */
-    z-index: 1; /* Đảm bảo nằm dưới text */
-}
-
-/* Đảm bảo link và logo vẫn nằm trên lớp phủ */
-.navbar .logo,
-.navbar .nav-links a {
-    position: relative;
-    z-index: 2;
-}
+    width: 25px;
+    height: 30px;
