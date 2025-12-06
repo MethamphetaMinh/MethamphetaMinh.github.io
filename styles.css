@@ -66,7 +66,7 @@ h2 {
     text-transform: uppercase;
 }
 
-/* --- 2. NAVIGATION BAR (MÀU CAM SÁNG & HIỆU ỨNG SCANLINE) --- */
+/* --- 2. NAVIGATION BAR (GRADIENT & HIỆU ỨNG SCANLINE) --- */
 
 @keyframes scan-flow {
     from { background-position: -200% 0; }
@@ -89,12 +89,11 @@ h2 {
     align-items: center;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--dark-text);
+    border-bottom: 2px solid var(--dark-text); /* Viền màu tối */
 }
 
 /* TẠO HIỆU ỨNG SCANLINE/FLOW */
 .navbar::before {
-    /* ... (giữ nguyên code hiệu ứng scanline) ... */
     content: '';
     position: absolute;
     top: 0;
@@ -102,11 +101,12 @@ h2 {
     width: 100%;
     height: 100%;
     
+    /* Hiệu ứng Scanline (vẫn dùng gradient và animation) */
     background: linear-gradient(
         90deg,
         transparent 0%,
         rgba(255, 255, 255, 0.6) 5%, 
-        var(--turquoise) 10%,
+        var(--turquoise) 10%, /* Dải chính (Turquoise Rực) */
         transparent 20% 
     );
     background-size: 50% 100%; 
@@ -117,7 +117,7 @@ h2 {
 }
 
 .logo a {
-    color: var(--dark-text); 
+    color: var(--dark-text); /* CHỮ TỐI */
     font-size: 1.5em;
     font-weight: bold;
     position: relative; 
@@ -125,12 +125,14 @@ h2 {
 }
 
 .nav-links a {
-    color: var(--dark-text); 
+    color: var(--dark-text); /* CHỮ TỐI */
     margin-left: 20px;
     font-weight: 500;
     position: relative;
     z-index: 2;
 }
+
+/* ... Giữ nguyên các phần CSS khác ... */
 
 /* --- 3. HERO SECTION (Nền Trắng Ngà) --- */
 .hero-subtext {
