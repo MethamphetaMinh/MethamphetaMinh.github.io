@@ -1,5 +1,5 @@
 /* ===================================
-   HA TUAN MINH PORTFOLIO – FINAL + TETRIS + ĐẸP HOÀN HẢO
+   HA TUAN MINH PORTFOLIO – PHIÊN BẢN ỔN ĐỊNH & ĐẸP NHẤT (NHƯ CŨ)
    =================================== */
 
 :root {
@@ -18,11 +18,9 @@ body {
     background: var(--light-bg);
     color: var(--dark-text);
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    position: relative;
 }
 
-/* ==================== NAVBAR (giữ nguyên đẹp) ==================== */
+/* ==================== NAVBAR ĐẸP ỔN ĐỊNH ==================== */
 @keyframes scan-flow {
     0%   { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
@@ -37,16 +35,16 @@ body {
     align-items: center;
     z-index: 1000;
     overflow: hidden;
-    backdrop-filter: blur(12px);
     background: linear-gradient(90deg, #ff7f50 0%, #ff8c61 35%, #40E0D0 70%, #40E0D0 100%);
     border-bottom: 3px solid rgba(0,0,0,0.25);
+    backdrop-filter: blur(12px);
     transition: all 0.7s ease;
 }
 
 .navbar:hover {
     background: linear-gradient(90deg, #40E0D0 0%, #5be8d8 35%, #ff7f50 70%, #ff7f50 100%);
     transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(64,224,208,0.6);
+    box-shadow: 0 15px 40px rgba(64,224,208,0.5);
     border-bottom-color: #ff7f50;
 }
 
@@ -54,156 +52,14 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.15), transparent);
     transform: translateX(-100%);
     animation: scan-flow 3.5s linear infinite;
     pointer-events: none;
     z-index: 1;
 }
 
-.navbar:hover::before { animation-duration: 2s; }
-
 .logo a, .nav-links a {
     position: relative;
     z-index: 10;
-    color: #000 !important;
-    font-weight: 900;
-    text-decoration: none;
-}
-
-.logo a { font-size: 2.1rem; letter-spacing: 1.5px; }
-.nav-links a { margin-left: 38px; font-size: 1.2rem; }
-.nav-links a:hover { transform: scale(1.1); }
-
-/* ==================== HIỆU ỨNG TETRIS RƠI NHẸ NHÀNG SIÊU ĐẸP ==================== */
-@keyframes tetris-fall {
-    0%   { transform: translateY(-120vh) rotate(0deg); opacity: 0; }
-    10%  { opacity: 1; }
-    90%  { opacity: 1; }
-    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
-}
-
-/* Tạo 12 khối Tetris rơi ngẫu nhiên khắp trang */
-body:after {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 997;
-    background:
-        radial-gradient(circle, var(--orange) 10%, transparent 11%),
-        radial-gradient(circle, var(--turquoise) 8%, transparent 9%);
-    background-size: 60px 60px;
-    background-position: 
-        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,127,80,0.03) 35px, rgba(255,127,80,0.03) 70px),
-        repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(64,224,208,0.03) 35px, rgba(64,224,208,0.03) 70px);
-    animation: tetris-rain 40s linear infinite;
-}
-
-@keyframes tetris-rain {
-    0%   { background-position: 0 0, 0 0; }
-    100% { background-position: 100px 1000px, -100px 800px; }
-}
-
-/* Thêm vài khối Tetris thật rơi chậm (tùy chọn, rất đẹp) */
-.tetris-piece {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: var(--orange);
-    border: 2px solid #000;
-    border-radius: 4px;
-    box-shadow: 0 0 12px rgba(255,127,80,0.9);
-    animation: tetris-fall linear infinite;
-    pointer-events: none;
-    z-index: 998;
-    opacity: 0.8;
-}
-
-/* Tạo 8 khối rơi ở các vị trí ngẫu nhiên (bạn có thể thêm vào HTML hoặc để JS tạo) */
-.tetris-piece:nth-child(1)  { left: 10%; animation-duration: 12s; animation-delay: 0s; background: var(--turquoise); }
-.tetris-piece:nth-child(2)  { left: 25%; animation-duration: 15s; animation-delay: 2s; }
-.tetris-piece:nth-child(3)  { left: 40%; animation-duration: 10s; animation-delay: 5s; background: var(--turquoise); }
-.tetris-piece:nth-child(4)  { left: 55%; animation-duration: 18s; animation-delay: 1s; }
-.tetris-piece:nth-child(5)  { left: 70%; animation-duration: 14s; animation-delay: 7s; background: var(--turquoise); }
-.tetris-piece:nth-child(6)  { left: 85%; animation-duration: 11s; animation-delay: 4s; }
-.tetris-piece:nth-child(7)  { left: 15%; animation-duration: 20s; animation-delay: 9s; }
-.tetris-piece:nth-child(8)  { left: 90%; animation-duration: 16s; animation-delay: 3s; background: var(--turquoise); }
-
-/* ==================== EMAIL & GITHUB – MÀU CORAL ==================== */
-.personal-info a,
-#contact a,
-footer a,
-a[href^="mailto:"],
-a[href^="https://github.com"] {
-    color: var(--orange) !important;
-    font-weight: 700;
-    font-size: 1.4rem;
-    text-decoration: underline;
-    transition: all 0.3s ease;
-}
-
-.personal-info a:hover,
-a[href^="mailto:"]:hover,
-a[href^="https://github.com"]:hover {
-    color: #ff6a3d !important;
-    text-decoration: none;
-}
-
-/* ==================== FEATURED PROJECTS – TIÊU ĐỀ NHỎ MÀU TURQUOISE ==================== */
-.project-card h3,
-.project-card .tech-stack,
-.project-card p,
-.project-info span,
-.project-card a {
-    color: var(--turquoise) !important;
-    font-weight: 600;
-}
-
-/* Tiêu đề chính Projects vẫn là coral */
-#projects h2,
-.featured-projects h2 {
-    font-size: 4.5rem !important;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #ff7f50 !important;
-    text-shadow: 3px 3px 0 #40E0D0, 6px 6px 20px rgba(0,0,0,0.2);
-    margin-bottom: 80px;
-    text-align: center;
-}
-
-/* ==================== CÁC TIÊU ĐỀ KHÁC ==================== */
-#about h2,
-#skills h2 {
-    font-size: 4.5rem !important;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #ff7f50 !important;
-    text-shadow: 3px 3px 0 #40E0D0, 6px 6px 20px rgba(0,0,0,0.2);
-    margin-bottom: 80px;
-    text-align: center;
-}
-
-/* Thanh cuối trang */
-.footer-bar {
-    width: 100%;
-    height: 12px;
-    background: linear-gradient(90deg, #ff7f50, #40E0D0);
-    margin-top: 120px;
-    box-shadow: 0 -8px 25px rgba(255,127,80,0.6), 0 -12px 35px rgba(64,224,208,0.5);
-}
-#contact h2 {
-    font-size: 4.5rem !important;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    background: linear-gradient(90deg, #ff7f50, #40E0D0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    margin-bottom: 80px;
-    text-align: center;
-}
+    color: #000
