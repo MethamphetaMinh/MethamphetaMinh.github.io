@@ -9,7 +9,7 @@
 :root {
     /* Màu Sắc Chính */
     --turquoise: #40E0D0; 
-    --orange-text: #ff7f50; /* Màu Cam Cập nhật */
+    --orange-text: #ff7f50; 
 
     /* Màu Nền Toàn Trang (BODY) */
     --light-bg: #FFFFFF; 
@@ -17,7 +17,7 @@
     --border-color: #DDDDDD; 
 
     /* MÀU SẮC ĐẶC BIỆT CỦA NAVBAR & CARD PROJECT */
-    --navbar-bg: #ff7f50; /* SỬA: Dùng giá trị Cam Sáng cơ bản cho biến */
+    --navbar-bg: var(--orange-text); 
     --navbar-text: var(--dark-text); 
     --card-bg: #F0F0F0; 
     --dark-card: #333333; 
@@ -56,12 +56,10 @@ section {
 }
 
 h2 {
-    /* Đảm bảo tiêu đề H2 luôn căn giữa */
     text-align: center; 
-    
     font-size: 2.5em;
     margin-bottom: 40px;
-    /* THAY ĐỔI MÀU TỪ --turquoise SANG --orange-text */
+    /* MÀU CHUNG CHO H2 (DÙNG CHO CÁC TIÊU ĐỀ PHỤ KHÔNG BỊ GHI ĐÈ) */
     color: var(--orange-text); 
     text-transform: uppercase;
 }
@@ -76,11 +74,11 @@ h2 {
 .navbar {
     position: relative;
     overflow: hidden;
-    /* ĐIỀU CHỈNH TỶ LỆ GRADIENT: Cam (70%) -> Turquoise (30%) */
+    /* GRADIENT 70/30 */
     background: linear-gradient(
         to right, 
-        var(--orange-text) 70%, /* Cam Sáng chiếm 70% */
-        var(--turquoise) 70%     /* Turquoise bắt đầu từ 70% */
+        var(--orange-text) 70%, 
+        var(--turquoise) 70%     
     );
     
     padding: 15px 5%;
@@ -89,12 +87,11 @@ h2 {
     align-items: center;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--dark-text); /* Viền màu tối */
+    border-bottom: 2px solid var(--dark-text); 
 }
 
 /* TẠO HIỆU ỨNG SCANLINE/FLOW */
 .navbar::before {
-    /* ... giữ nguyên code hiệu ứng scanline ... */
     content: '';
     position: absolute;
     top: 0;
@@ -115,6 +112,23 @@ h2 {
     animation: scan-flow 15s linear infinite; 
     z-index: 1; 
 }
+
+.logo a {
+    color: var(--dark-text); /* ĐÃ SỬA: Logo luôn màu đen */
+    font-size: 1.5em;
+    font-weight: bold;
+    position: relative; 
+    z-index: 2;
+}
+
+.nav-links a {
+    color: var(--dark-text); 
+    margin-left: 20px;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+}
+
 /* --- 3. HERO SECTION (Nền Trắng Ngà) --- */
 .hero-subtext {
     font-size: 1.25em; 
@@ -142,175 +156,4 @@ h2 {
     display: inline-block;
     padding: 12px 30px;
     margin-top: 30px;
-    background-color: var(--turquoise);
-    color: var(--dark-text);
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-}
-
-.cta-button:hover {
-    background-color: #36c3b6; 
-    transform: translateY(-2px);
-}
-
-/* --- 4. ABOUT SECTION --- */
-#about {
-    text-align: left; 
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-#about h2 {
-    text-align: left; 
-    color: var(--dark-text);
-    margin-bottom: 10px;
-}
-
-.personal-info a {
-    color: var(--orange-text);
-    margin-right: 15px;
-}
-
-/* CSS ẢNH ĐẠI DIỆN TRONG ABOUT */
-.profile-img-container {
-    float: right;
-    margin-left: 20px;
-    width: 240px;
-    height: 240px;
-    overflow: hidden;
-    border-radius: 50%;
-    border: 3px solid var(--turquoise);
-}
-
-.profile-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-#about::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.studying-tag {
-    background-color: var(--orange-text); 
-    color: var(--navbar-text);
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-right: 15px;
-    display: inline-block;
-}
-
-/* --- TIMELINE/LIST STYLES --- */
-.timeline-content h3 {
-    margin-top: 20px;
-    color: var(--dark-text);
-}
-
-/* --- 5. PROJECTS SECTION STYLES (Nền Cam Sáng) --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    background-color: var(--orange-text); 
-    color: var(--dark-text); 
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--orange-text);
-    transition: transform var(--transition-speed);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
-
-.project-info h3 {
-    color: var(--dark-text);
-    margin-top: 0;
-}
-
-.project-card a { 
-    color: var(--turquoise);
-    font-weight: bold;
-}
-
-/* --- 6. HIỆU ỨNG TETRIS --- */
-@keyframes tetris-fall {
-    0% {
-        transform: translateY(-50px) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    80% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1; 
-    }
-    100% {
-        opacity: 0.2;
-    }
-}
-
-.tetris-effect {
-    display: inline-block;
-    position: relative;
-    width: 25px;
-    height: 30px;
-    vertical-align: middle;
-    margin-right: 15px;
-    --delay-1: 0s;
-    --delay-2: 2s;
-}
-
-.tetris-effect::before,
-.tetris-effect::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border: 1px solid var(--dark-text); 
-    box-shadow: 0 0 5px rgba(64, 224, 208, 0.5); 
-    animation: tetris-fall 6s ease-out infinite;
-}
-
-.tetris-effect::before {
-    background-color: var(--turquoise); 
-    animation-delay: var(--delay-1); 
-    top: 5px;
-    left: 0;
-}
-
-.tetris-effect::after {
-    background-color: var(--orange-text); 
-    animation-delay: var(--delay-2); 
-    top: 0;
-    left: 15px;
-    transform-origin: bottom left; 
-}
-/* --- SỬA ĐỔI MÀU CHO TIÊU ĐỀ ABOUT ME --- */
-#about h2 {
-    /* Ghi đè quy tắc h2 chung (màu Cam Sáng) */
-    color: var(--turquoise) !important; 
-    text-align: center; /* Đảm bảo căn giữa */
-}
-/* --- SỬA ĐỔI MÀU CHO TIÊU ĐỀ FEATURED PROJECTS --- */
-/* (Tiêu đề này nằm trong div có class projects-in-about) */
-.projects-in-about h2 {
-    color: var(--turquoise) !important;
-    text-align: center !important; /* Đảm bảo căn giữa, vì nó nằm trong About Section */
-}
-/* --- SỬA ĐỔI MÀU CHO TIÊU ĐỀ CONTACT --- */
-#contact h2 {
-    /* Ghi đè màu Cam Sáng của h2 chung */
-    color: var(--turquoise) !important;
-}
+    background
