@@ -77,7 +77,6 @@ h2 {
     /* GRADIENT 70/30 */
     background: linear-gradient(
         to right,
-        transparent 0%,
         var(--orange-text) 70%, 
         var(--turquoise) 70%     
     );
