@@ -9,7 +9,7 @@
 :root {
     /* Màu Sắc Chính */
     --turquoise: #40E0D0; 
-    --orange-text: #ff7f50; 
+    --orange-text: #ff7f50; /* Màu Cam Cập nhật */
 
     /* Màu Nền Toàn Trang (BODY) */
     --light-bg: #FFFFFF; 
@@ -17,8 +17,8 @@
     --border-color: #DDDDDD; 
 
     /* MÀU SẮC ĐẶC BIỆT CỦA NAVBAR & CARD PROJECT */
-    --navbar-bg: var(--orange-text); /* NỀN CAM SÁNG CHO NAVBAR */
-    --navbar-text: var(--dark-text); /* CHỮ TỐI TRÊN NỀN CAM */
+    --navbar-bg: #ff7f50; /* SỬA: Dùng giá trị Cam Sáng cơ bản cho biến */
+    --navbar-text: var(--dark-text); 
     --card-bg: #F0F0F0; 
     --dark-card: #333333; 
     
@@ -76,18 +76,25 @@ h2 {
 .navbar {
     position: relative;
     overflow: hidden;
-    background-color: var(--navbar-bg); /* NỀN CAM SÁNG */
+    /* THAY THẾ background-color BẰNG GRADIENT */
+    background: linear-gradient(
+        to right, 
+        var(--orange-text), /* #ff7f50 (Bên trái) */
+        var(--turquoise)    /* #40E0D0 (Bên phải) */
+    );
+    
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--dark-text); /* Viền màu tối */
+    border-bottom: 2px solid var(--dark-text);
 }
 
 /* TẠO HIỆU ỨNG SCANLINE/FLOW */
 .navbar::before {
+    /* ... (giữ nguyên code hiệu ứng scanline) ... */
     content: '';
     position: absolute;
     top: 0;
@@ -99,7 +106,7 @@ h2 {
         90deg,
         transparent 0%,
         rgba(255, 255, 255, 0.6) 5%, 
-        var(--turquoise) 10%, /* Dải chính (Turquoise Rực) */
+        var(--turquoise) 10%,
         transparent 20% 
     );
     background-size: 50% 100%; 
