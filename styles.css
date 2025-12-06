@@ -240,18 +240,16 @@ a[href^="https://github.com"]:hover {
 
 /* Tiêu đề ABOUT ME to hơn + đậm + có bóng nhẹ */
 #about h2 {
-    font-size: 4.5rem !important;        /* to hơn hẳn */
+    font-size: 4.5rem !important;
     font-weight: 900;
-    letter-spacing: 3px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, var(--orange), var(--turquoise));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom: 50px;
+    letter-spacing: 4px;
+    color: #ff7f50 !important;
+    text-shadow: 
+        3px 3px 0 #40E0D0,
+        6px 6px 15px rgba(0,0,0,0.2);
+    margin-bottom: 70px;
 }
-
 /* Đoạn giới thiệu bản thân – chữ to hơn, line-height thoải mái */
 #about p,
 #about .intro-text {
@@ -325,4 +323,33 @@ strong {
         0 -6px 20px rgba(255,127,80,0.6),
         0 -10px 30px rgba(64,224,208,0.5);
     border-radius: 6px 6px 0 0;
+}
+/* ==================== FEATURED SKILLS – MÀU CORAL ĐẸP, KHÔNG GRADIENT ==================== */
+
+/* Nếu tiêu đề là <h2> */
+#skills h2,
+.skills h2,
+.featured-skills h2 {
+    font-size: 4rem !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ff7f50 !important;               /* Màu coral chính xác */
+    text-shadow: 
+        3px 3px 0 #40E0D0,
+        6px 6px 20px rgba(0,0,0,0.2);
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+/* Nếu tiêu đề là <h3> (nhỏ hơn một chút */
+#skills h3,
+.skills h3,
+.featured-skills h3 {
+    font-size: 2.8rem !important;
+    font-weight: 800;
+    color: #ff7f50 !important;
+    text-shadow: 2px 2px 0 #40E0D0;
+    margin: 50px 0 25px 0;
+    text-align: center;
 }
