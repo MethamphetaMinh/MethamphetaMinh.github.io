@@ -56,10 +56,13 @@ section {
 }
 
 h2 {
+    /* Đảm bảo tiêu đề H2 luôn căn giữa */
     text-align: center; 
+    
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: var(--turquoise);
+    /* THAY ĐỔI MÀU TỪ --turquoise SANG --orange-text */
+    color: var(--orange-text); 
     text-transform: uppercase;
 }
 
