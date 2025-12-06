@@ -1,7 +1,5 @@
 /* ===================================
-   HA TUAN MINH PORTFOLIO – FINAL CSS
-   Gradient navbar 70% cam → 30% turquoise
-   Hover → đảo ngược 30% cam → 70% turquoise + hiệu ứng siêu đẹp
+   HA TUAN MINH PORTFOLIO – FINAL CSS (ĐÃ CHỈNH ẢNH TO HƠN + ĐẸP HƠN)
    =================================== */
 
 :root {
@@ -12,11 +10,7 @@
     --transition: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Akashi', 'Segoe UI', sans-serif;
@@ -26,7 +20,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* ==================== NAVBAR – ĐỈNH CAO ==================== */
+/* ==================== NAVBAR ==================== */
 @keyframes scanline {
     0%   { background-position: -300% 0; }
     100% { background-position: 300% 0; }
@@ -34,9 +28,7 @@ body {
 
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0; left: 0; width: 100%;
     padding: 18px 5%;
     display: flex;
     justify-content: space-between;
@@ -44,19 +36,15 @@ body {
     z-index: 1000;
     overflow: hidden;
     border-bottom: 3px solid var(--dark-text);
-
-    /* 70% CAM – 30% TURQUOISE (viết rõ từng % để mọi trình duyệt hiểu đúng) */
     background: linear-gradient(to right,
         var(--orange)    0%,
         var(--orange)    70%,
         var(--turquoise) 70%,
         var(--turquoise) 100%
     );
-
     transition: all var(--transition);
 }
 
-/* Hover → đảo ngược 30% cam – 70% turquoise */
 .navbar:hover {
     background: linear-gradient(to right,
         var(--orange)    0%,
@@ -69,7 +57,6 @@ body {
     transform: translateY(-6px);
 }
 
-/* Hiệu ứng tia sáng quét ngang */
 .navbar::before {
     content: '';
     position: absolute;
@@ -88,40 +75,22 @@ body {
     transition: opacity 0.6s;
 }
 
-.navbar:hover::before {
-    opacity: 0.35;
-}
+.navbar:hover::before { opacity: 0.35; }
 
-/* Chữ luôn nằm trên cùng, đậm đẹp */
-.logo a,
-.nav-links a {
+.logo a, .nav-links a {
     position: relative;
     z-index: 10;
     color: #000 !important;
     font-weight: 700;
     text-decoration: none;
-    transition: color 0.3s;
 }
 
-.logo a {
-    font-size: 1.9rem;
-}
+.logo a { font-size: 1.9rem; }
+.nav-links a { margin-left: 32px; font-size: 1.1rem; }
+.nav-links a:hover { color: #111 !important; }
 
-.nav-links a {
-    margin-left: 32px;
-    font-size: 1.1rem;
-}
-
-.nav-links a:hover {
-    color: #111 !important;
-}
-
-/* ==================== CÁC PHẦN CÒN LẠI ==================== */
-section {
-    padding: 120px 5% 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+/* ==================== CÁC PHẦN KHÁC ==================== */
+section { padding: 120px 5% 80px; max-width: 1200px; margin: 0 auto; }
 
 h2 {
     text-align: center;
@@ -133,60 +102,41 @@ h2 {
 }
 
 /* Hero */
-.hero {
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 100px;
-}
-
-.hero h1 {
-    font-size: 4.5rem;
-    margin-bottom: 20px;
-    color: var(--dark-text);
-}
-
-.hero h1 span {
-    color: var(--turquoise);
-}
-
-.hero p {
-    font-size: 1.5rem;
-    color: #555;
-    margin: 20px 0;
-}
+.hero { text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 100px; }
+.hero h1 { font-size: 4.5rem; margin-bottom: 20px; color: var(--dark-text); }
+.hero h1 span { color: var(--turquoise); }
+.hero p { font-size: 1.5rem; color: #555; margin: 20px 0; }
 
 .cta-button {
     display: inline-block;
     margin-top: 40px;
     padding: 16px 40px;
     background: var(--turquoise);
-    color: #000;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: all 0.4s;
+    color:#000;
+    font-weight:bold;
+    border-radius:50px;
+    transition:all .4s;
 }
+.cta-button:hover { background:#36c3b6; transform:translateY(-6px); box-shadow:0 15px 30px rgba(64,224,208,.4); }
 
-.cta-button:hover {
-    background: #36c3b6;
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(64,224,208,0.4);
-}
-
-/* About */
+/* ABOUT – ẢNH ĐÃ ĐƯỢC PHÓNG TO ĐẸP HƠN */
 #about h2 { color: var(--turquoise) !important; }
 
 .profile-img-container {
     float: right;
-    margin: 0 0 30px 40px;
-    width: 200px;
-    height: 200px;
+    margin: 0 0 30px 50px;        /* tăng khoảng cách cho thoáng */
+    width: 260px;                 /* từ 200px → 260px (to hơn, đẹp hơn) */
+    height: 260px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid var(--turquoise);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 7px solid var(--turquoise);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    transition: all 0.4s ease;
+}
+
+.profile-img-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(64,224,208,0.4);
 }
 
 .profile-img-container img {
@@ -195,6 +145,7 @@ h2 {
     object-fit: cover;
 }
 
+/* Các phần còn lại giữ nguyên đẹp */
 .studying-tag {
     display: inline-block;
     background: var(--orange);
@@ -205,54 +156,47 @@ h2 {
     margin: 10px 12px 10px 0;
 }
 
-/* Projects */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 35px;
-    margin-top: 30px;
-}
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px,1fr)); gap:35px; margin-top:30px; }
 
 .project-card {
     background: var(--orange);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    transition: all 0.4s;
+    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    transition: all .4s;
 }
+.project-card:hover { transform: translateY(-20px); box-shadow: 0 25px 50px rgba(0,0,0,.35); }
 
-.project:hover {
-    transform: translateY(-20px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
-}
+.project-card img { width:100%; height:220px; object-fit:cover; }
+.project-info { padding:25px; }
+.project-info h3 { color:#000; margin-bottom:12px; }
+.project-card a { color: var(--turquoise); font-weight:bold; }
 
-.project img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.project-info {
-    padding: 25px;
-}
-
-.project-info h3 {
-    color: #000;
-    margin-bottom: 12px;
-}
-
-.project a {
-    color: var(--turquoise);
-    font-weight: bold;
-}
-
-/* Contact */
 #contact h2 { color: var(--turquoise) !important; }
+
+/* Email & GitHub link – màu coral đồng bộ */
+.personal-info a,
+#contact a,
+footer a,
+a[href^="mailto:"],
+a[href^="https://github.com"] {
+    color: var(--orange) !important;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.personal-info a:hover,
+#contact a:hover,
+footer a:hover,
+a[href^="mailto:"]:hover,
+a[href^="https://github.com"]:hover {
+    color: #ff6b3d !important;
+    text-decoration: none;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
+    .profile-img-container { width: 180px; height: 180px; margin: 0 0 20px 20px; }
     .navbar { padding: 15px 5%; }
-    .logo a { font-size: 1.6rem; }
-    .nav-links a { margin-left: 18px; font-size: 1rem; }
     .hero h1 { font-size: 3rem; }
 }
