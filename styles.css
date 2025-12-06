@@ -8,7 +8,7 @@
 /* --- 1. KHAI BÁO BIẾN VÀ RESET --- */
 :root {
     --turquoise: #40E0D0; /* Màu Chủ Đạo */
-    --light-bg: #FFFFFF; /* Nền Trắng */
+    --light-bg: #FFFAB3; /* Nền Trắng */
     --dark-text: #333333; /* Chữ Tối (Chữ chính) */
     --orange-text: #FFA500; /* Màu Cam Sáng (Điểm nhấn) */
     --card-bg: #F0F0F0; /* Nền card phụ (Xám nhạt) */
