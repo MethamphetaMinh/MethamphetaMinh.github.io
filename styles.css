@@ -74,11 +74,11 @@ h2 {
 .navbar {
     position: relative;
     overflow: hidden;
-    /* GRADIENT 70/30 */
+    /* THAY THẾ background-color BẰNG GRADIENT */
     background: linear-gradient(
-        to right,
-        var(--orange-text) 70%, 
-        var(--turquoise) 70%     
+        to right, 
+        var(--orange-text), /* #ff7f50 (Bên trái) */
+        var(--turquoise)    /* #40E0D0 (Bên phải) */
     );
     
     padding: 15px 5%;
@@ -87,7 +87,7 @@ h2 {
     align-items: center;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--dark-text); 
+    border-bottom: 2px solid var(--dark-text); /* Viền màu tối */
 }
 
 /* TẠO HIỆU ỨNG SCANLINE/FLOW */
