@@ -223,3 +223,61 @@ h2 {
     color: var(--turquoise);
     font-weight: bold;
 }
+/* * ------------------------------------
+ * BỔ SUNG: HIỆU ỨNG TETRIS 
+ * ------------------------------------
+ */
+
+@keyframes tetris-fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+.tetris-effect {
+    display: inline-block;
+    position: relative;
+    width: 25px; /* Chiều rộng container */
+    height: 30px; /* Chiều cao container */
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+/* Sử dụng Pseudo-elements để tạo các khối ảo */
+.tetris-effect::before,
+.tetris-effect::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--turquoise);
+    border: 1px solid var(--dark-text); /* Viền tối trên nền sáng */
+    box-shadow: 0 0 5px rgba(64, 224, 208, 0.5); /* Hiệu ứng sáng */
+    animation: tetris-fall 6s ease-out infinite;
+    animation-delay: var(--delay); /* Dùng biến để tạo độ trễ khác nhau */
+}
+
+/* Khối 1 (Ví dụ: khối I) */
+.tetris-effect::before {
+    --delay: 0s;
+    top: 5px;
+    left: 0;
+}
+
+/* Khối 2 (Ví dụ: khối L) */
+.tetris-effect::after {
+    --delay: 2s; /* Rơi sau 2 giây */
+    top: 0;
+    left: 15px;
+    background-color: var(--orange-text); /* Khối màu cam */
+    transform-origin: bottom left; /* Đặt tâm xoay */
+}
