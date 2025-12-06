@@ -67,14 +67,20 @@ h2 {
 /* --- 2. NAVIGATION BAR (GRADIENT 70/30 & HIỆU ỨNG SCANLINE) --- */
 
 @keyframes scan-flow {
-    from { background-position: -200% 0; }
-    to { background-position: 200% 0; }
+    from {
+        /* Bắt đầu ngoài cùng bên trái của Navbar */
+        transform: translateX(-100%); 
+    }
+    to {
+        /* Kết thúc ngoài cùng bên phải của Navbar */
+        transform: translateX(100%); 
+    }
 }
 
 .navbar {
     position: relative;
     overflow: hidden;
-    /* GRADIENT 70/30 */
+    /* KHẮC PHỤC LỖI GRADIENT: Đặt nền gradient LÀM NỀN CHÍNH */
     background: linear-gradient(
         to right, 
         var(--orange-text) 70%, 
@@ -90,31 +96,26 @@ h2 {
     border-bottom: 2px solid var(--dark-text); 
 }
 
-/* TẠO HIỆU ỨNG SCANLINE/FLOW */
+/* TẠO LỚP SCANLINE CHẠY QUA */
 .navbar::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 20%; /* Đặt chiều rộng của dải sáng */
     height: 100%;
     
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.6) 5%, 
-        var(--turquoise) 10%, 
-        transparent 20% 
-    );
-    background-size: 50% 100%; 
-    background-repeat: no-repeat;
+    /* Dải sáng Turquoise mờ */
+    background: rgba(64, 224, 208, 0.5); 
     
+    /* Áp dụng hoạt ảnh dịch chuyển */
     animation: scan-flow 15s linear infinite; 
     z-index: 1; 
 }
 
+/* KHẮC PHỤC LỖI LOGO VÀ LINKS (giữ nguyên z-index) */
 .logo a {
-    color: var(--dark-text); /* ĐÃ SỬA: Logo luôn màu đen */
+    color: var(--dark-text) !important;
     font-size: 1.5em;
     font-weight: bold;
     position: relative; 
@@ -122,13 +123,12 @@ h2 {
 }
 
 .nav-links a {
-    color: var(--dark-text); 
+    color: var(--dark-text);
     margin-left: 20px;
     font-weight: 500;
     position: relative;
     z-index: 2;
 }
-
 /* --- 3. HERO SECTION (Nền Trắng Ngà) --- */
 .hero-subtext {
     font-size: 1.25em; 
