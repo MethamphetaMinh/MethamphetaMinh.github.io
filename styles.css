@@ -383,3 +383,57 @@ strong {
 .tetris-effect::before { background-color: var(--turquoise); animation-delay: var(--delay-1); top: 5px; left: 0; }
 .tetris-effect::after { background-color: var(--orange-text); animation-delay: var(--delay-2); top: 0; left: 15px; transform-origin: bottom left;
 }
+/* ==================== 7. HIỆU ỨNG NHỊP TIM LƯỚT NHANH (HEARTBEAT SCAN) ==================== */
+
+@keyframes heartbeat-scan {
+    0% {
+        transform: translateX(-100%) scaleX(0.2); /* Bắt đầu ngoài cùng bên trái */
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateX(0) scaleX(1); /* Lướt qua text */
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%) scaleX(0.2); /* Kết thúc ngoài cùng bên phải, biến mất */
+        opacity: 0.2;
+    }
+}
+
+/* Áp dụng cho các link "more details" */
+.heartbeat-link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    /* Đảm bảo màu link ban đầu vẫn là turquoise như đã định nghĩa */
+    color: var(--turquoise) !important;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.heartbeat-link:hover {
+    text-decoration: none;
+    color: #40E0D0 !important;
+}
+
+/* Tia sáng màu Coral/Orange */
+.heartbeat-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; /* Đặt dưới text một chút */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--orange);
+    box-shadow: 0 0 10px var(--orange);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s;
+}
+
+/* Kích hoạt animation khi hover */
+.heartbeat-link:hover::after {
+    opacity: 0.9;
+    animation: heartbeat-scan 1.5s ease-in-out infinite; /* Lướt nhanh và lặp lại */
+}
