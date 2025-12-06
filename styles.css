@@ -1,12 +1,13 @@
-/*====================================
-  HA TUAN MINH PORTFOLIO – FINAL CSS
-  Gradient Navbar 7:3 → 3:7 khi hover + Scanline siêu đẹp
-====================================*/
+/* ===================================
+   HA TUAN MINH PORTFOLIO – FINAL CSS
+   Gradient navbar 70% cam → 30% turquoise
+   Hover → đảo ngược 30% cam → 70% turquoise + hiệu ứng siêu đẹp
+   =================================== */
 
 :root {
+    --orange:    #ff7f50;
     --turquoise: #40E0D0;
-    --orange: #ff7f50;
-    --light-bg: #FFFFFF;
+    --light-bg:  #ffffff;
     --dark-text: #333333;
     --transition: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -25,7 +26,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* ==================== NAVIGATION BAR – ĐỈNH CAO ==================== */
+/* ==================== NAVBAR – ĐỈNH CAO ==================== */
 @keyframes scanline {
     0%   { background-position: -300% 0; }
     100% { background-position: 300% 0; }
@@ -42,8 +43,9 @@ body {
     align-items: center;
     z-index: 1000;
     overflow: hidden;
+    border-bottom: 3px solid var(--dark-text);
 
-    /* Gradient mặc định: 70% cam → 30% turquoise */
+    /* 70% CAM – 30% TURQUOISE (viết rõ từng % để mọi trình duyệt hiểu đúng) */
     background: linear-gradient(to right,
         var(--orange)    0%,
         var(--orange)    70%,
@@ -51,11 +53,10 @@ body {
         var(--turquoise) 100%
     );
 
-    border-bottom: 3px solid var(--dark-text);
     transition: all var(--transition);
 }
 
-/* Hover: đảo ngược thành 30% cam → 70% turquoise */
+/* Hover → đảo ngược 30% cam – 70% turquoise */
 .navbar:hover {
     background: linear-gradient(to right,
         var(--orange)    0%,
@@ -64,23 +65,23 @@ body {
         var(--turquoise) 100%
     );
     border-bottom-color: var(--turquoise);
-    box-shadow: 0 10px 35px rgba(64, 224, 208, 0.5);
-    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(64, 224, 208, 0.5);
+    transform: translateY(-6px);
 }
 
-/* Hiệu ứng tia sáng quét ngang (scanline) */
+/* Hiệu ứng tia sáng quét ngang */
 .navbar::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg,
         transparent,
-        rgba(255,255,255,0.2) 10%,
-        rgba(64,224,208,0.8) 20%,
-        transparent 30%
+        rgba(255,255,255,0.25) 12%,
+        rgba(64,224,208,0.75) 18%,
+        transparent 28%
     );
     background-size: 300% 100%;
-    animation: scanline 12s linear infinite;
+    animation: scanline 11s linear infinite;
     pointer-events: none;
     opacity: 0.8;
     z-index: 1;
@@ -88,14 +89,14 @@ body {
 }
 
 .navbar:hover::before {
-    opacity: 0.3;
+    opacity: 0.35;
 }
 
-/* Chữ luôn nổi bật trên mọi nền */
+/* Chữ luôn nằm trên cùng, đậm đẹp */
 .logo a,
 .nav-links a {
     position: relative;
-    z-index: 3;
+    z-index: 10;
     color: #000 !important;
     font-weight: 700;
     text-decoration: none;
@@ -103,21 +104,21 @@ body {
 }
 
 .logo a {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
 }
 
 .nav-links a {
-    margin-left: 30px;
+    margin-left: 32px;
     font-size: 1.1rem;
 }
 
 .nav-links a:hover {
-    color: #222 !important;
+    color: #111 !important;
 }
 
 /* ==================== CÁC PHẦN CÒN LẠI ==================== */
 section {
-    padding: 100px 5%;
+    padding: 120px 5% 80px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -125,7 +126,7 @@ section {
 h2 {
     text-align: center;
     font-size: 2.8rem;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     color: var(--orange);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -134,15 +135,15 @@ h2 {
 /* Hero */
 .hero {
     text-align: center;
-    padding: 160px 5% 100px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 100px;
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin-bottom: 20px;
     color: var(--dark-text);
 }
@@ -152,15 +153,15 @@ h2 {
 }
 
 .hero p {
-    font-size: 1.4rem;
-    margin: 20px 0;
+    font-size: 1.5rem;
     color: #555;
+    margin: 20px 0;
 }
 
 .cta-button {
     display: inline-block;
-    margin-top: 30px;
-    padding: 14px 35px;
+    margin-top: 40px;
+    padding: 16px 40px;
     background: var(--turquoise);
     color: #000;
     font-weight: bold;
@@ -170,8 +171,8 @@ h2 {
 
 .cta-button:hover {
     background: #36c3b6;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(64,224,208,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(64,224,208,0.4);
 }
 
 /* About */
@@ -179,13 +180,13 @@ h2 {
 
 .profile-img-container {
     float: right;
-    margin: 0 0 20px 30px;
-    width: 180px;
-    height: 180px;
+    margin: 0 0 30px 40px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid var(--turquoise);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    border: 5px solid var(--turquoise);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .profile-img-container img {
@@ -198,50 +199,49 @@ h2 {
     display: inline-block;
     background: var(--orange);
     color: white;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 30px;
     font-weight: bold;
-    margin: 10px 10px 10px 0;
+    margin: 10px 12px 10px 0;
 }
 
 /* Projects */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 35px;
+    margin-top: 30px;
 }
 
 .project-card {
     background: var(--orange);
-    color: #000;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.4s, box-shadow 0.4s;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: all 0.4s;
 }
 
-.project-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+.project:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
 }
 
-.project-card img {
+.project img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
 }
 
 .project-info {
-    padding: 20px;
+    padding: 25px;
 }
 
 .project-info h3 {
-    margin-bottom: 10px;
     color: #000;
+    margin-bottom: 12px;
 }
 
-.project-card a {
+.project a {
     color: var(--turquoise);
     font-weight: bold;
 }
@@ -252,7 +252,7 @@ h2 {
 /* Responsive */
 @media (max-width: 768px) {
     .navbar { padding: 15px 5%; }
-    .logo a { font-size: 1.5rem; }
-    .nav-links a { margin-left: 15px; font-size: 1rem; }
-    .hero h1 { font-size: 2.8rem; }
+    .logo a { font-size: 1.6rem; }
+    .nav-links a { margin-left: 18px; font-size: 1rem; }
+    .hero h1 { font-size: 3rem; }
 }
