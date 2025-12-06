@@ -4,32 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ha Tuan Minh</title>
-    <link rel="stylesheet" href="styles.css"> <style>
-        /* CSS nội tuyến cơ bản cho màu Turquoise để dễ hình dung */
+    <link rel="stylesheet" href="styles.css"> 
+    
+    <style>
+        /* --- CẬP NHẬT BIẾN VÀ SỬA LỖI CÚ PHÁP (Thêm dấu ;) --- */
         :root {
             --turquoise: #40E0D0; /* Màu chủ đạo */
-            --light-bg: #ffffff;
-            --dark-text: #333333; /* Chữ sáng */
-            --orange-text: #FFA500
-            --card-bg: #F0F0F0
+            --light-bg: #FFFFFF; /* Nền trắng */
+            --dark-text: #333333; /* Chữ tối (Chữ chính) */
+            --orange-text: #FFA500; /* Màu chữ Cam Sáng */
+            --card-bg: #F0F0F0; /* Nền card phụ (Xám nhạt) */
             --border-color: #DDDDDD; /* Màu đường viền */
         }
         
+        /* SỬA LỖI LOGIC: Nền trắng, Chữ tối */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--dark-bg);
-            color: var(--light-text);
+            background-color: var(--light-bg); /* SỬA: Dùng light-bg */
+            color: var(--dark-text); /* SỬA: Dùng dark-text */
         }
 
+        /* SỬA LỖI LOGIC: Nền thanh điều hướng */
         .navbar {
-            background-color: var(--dark-bg);
+            background-color: var(--light-bg); /* SỬA: Dùng light-bg */
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--turquoise);
+            border-bottom: 2px solid var(--border-color); /* Dùng màu viền nhạt */
         }
 
         .logo a {
@@ -40,7 +44,7 @@
         }
 
         .nav-links a {
-            color: var(--light-text);
+            color: var(--dark-text); /* SỬA: Dùng dark-text */
             text-decoration: none;
             margin-left: 20px;
             transition: color 0.3s;
@@ -53,6 +57,7 @@
         .hero {
             text-align: center;
             padding: 100px 5%;
+            background-color: var(--card-bg); /* Nền hơi xám cho phần đầu */
         }
 
         .hero h1 {
@@ -61,176 +66,8 @@
         }
 
         .hero h1 span {
-            color: var(--turquoise); /* Tên bạn/chức danh nổi bật */
+            color: var(--turquoise);
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            margin-top: 30px;
-            background-color: var(--turquoise);
-            color: var(--dark-bg);
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #36c3b6; 
-            transform: translateY(-2px);
-        }
-
-        section {
-            padding: 60px 5%;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: var(--turquoise);
-        }
-        
-        /* Cập nhật phần Giới thiệu để phù hợp với thông tin mới */
-        #about {
-            text-align: left; 
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        #about h2 {
-            text-align: left; 
-            color: var(--light-text); 
-            margin-bottom: 10px;
-        }
-        
-        .personal-info a {
-            color: var(--turquoise); 
-            text-decoration: none;
-            margin-right: 15px;
-        }
-        
-        .studying-tag {
-            display: inline-block;
-            background-color: var(--highlight-bg);
-            color: var(--dark-text);
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-right: 15px;
-        }
-        
-        .research-section {
-            margin-top: 30px;
-            border-top: 1px solid #333;
-            padding-top: 20px;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background-color: #2a2a2a;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--turquoise);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: auto;
-        }
-
-        .project-info {
-            padding: 15px;
-        }
-
-        .project-info h3 {
-            color: var(--turquoise);
-            margin-top: 0;
-        }
-
-        /* CSS MỚI CHO ẢNH ĐẠI DIỆN TRONG ABOUT */
-        .profile-img-container {
-            float: right;
-            margin-left: 20px;
-            width: 180px;
-            height: 180px;
-            overflow: hidden;
-            border-radius: 50%;
-            border: 3px solid var(--turquoise);
-        }
-        .profile-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        /* Clear float sau phần About để các phần sau không bị ảnh hưởng */
-        #about::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    </style>
-</head>
-<body>
-
-    <header class="navbar">
-        <div class="logo">
-            <a href="#">Ha Tuan Minh</a>
-        </div>
-        <nav class="nav-links">
-            <a href="#projects">Dự án</a>
-            <a href="#about">Giới thiệu</a>
-            <a href="#skills">Kỹ năng</a>
-            <a href="#contact">Liên hệ</a>
-        </nav>
-    </header>
-    <section id="about">
-        <h2>Giới Thiệu</h2>
-        
-        <div class="profile-img-container">
-            <img src="images/profile.jpg"
-        </div>
-        
-        <div class="personal-info">
-            <p>I'm a student at Foreign Trade University</a>in Ha Noi, Viet Nam.</p>
-            <p>
-                <a href="mailto:your_email@example.com">Email</a> / 
-                <a href="URL_GITHUB">Github</a>
-            </p>
-        </div>
-        
-        <div class="research-section">
-            <h3 style="color: var(--light-text);">Research</h3>
-            <p>I'm deeply interested in automation, focusing on developing intelligent systems and exploring the applications of artificial intelligence (AI).</p>
-        </div>
-        
-        <div style="margin-top: 20px; display: flex; align-items: center;">
-            <span class="studying-tag">Studying</span>
-            <a href="URL_TRUONG" style="color: var(--turquoise); text-decoration: none; font-weight: bold;">Foreign Trade University</a>
-        </div>
-        
-    </section>
-    
-    <section id="contact" style="text-align: center;">
-        <h2>Contact</h2>
-        <a href="Herewego@gmailc.om" class="cta-button">
-        </a>
-        <div style="margin-top: 20px;">
-            <a href="#" style="color: var(--turquoise); margin: 0 10px;">LinkedIn</a> |
-            <a href="#" style="color: var(--turquoise); margin: 0 10px;">GitHub</a>
-        </div>
-    </section>
-
-    <footer>
-        <p style="text-align: center; padding: 20px; font-size: 0.8em; border-top: 1px solid #2a2a2a;">&copy; 2025 Ha Tuan Minh. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+            display: inline-block
