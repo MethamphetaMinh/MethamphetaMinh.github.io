@@ -1,0 +1,102 @@
+/* --- 1. KHAI BÁO BIẾN VÀ RESET --- */
+:root {
+    --turquoise: #40E0D0; /* Màu Chủ Đạo */
+    --dark-bg: #121212; /* Nền Tối Sâu */
+    --darker-bg: #1A1A1A; /* Nền Card/Phụ */
+    --light-text: #F7F7F7; /* Chữ Sáng */
+    --highlight-bg: #f0e68c; /* Màu vàng nhạt cho Studying */
+    --dark-text-contrast: #333; /* Màu chữ tối tương phản */
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--turquoise);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: #36c3b6; /* Turquoise đậm hơn */
+}
+
+/* --- 2. CÁC PHẦN CHUNG --- */
+section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--turquoise);
+    text-transform: uppercase;
+}
+
+/* --- 3. NAVIGATION BAR --- */
+.navbar {
+    background-color: var(--darker-bg);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.logo a {
+    color: var(--turquoise);
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.nav-links a {
+    color: var(--light-text);
+    margin-left: 30px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--turquoise);
+}
+
+/* --- 4. HERO SECTION --- */
+.hero {
+    text-align: center;
+    padding: 150px 5%;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #003333 100%);
+}
+
+.hero h1 {
+    font-size: 4em;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: var(--turquoise); 
+    font-weight: 900;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+.cta-
