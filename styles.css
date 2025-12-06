@@ -236,3 +236,93 @@ a[href^="https://github.com"]:hover {
     .navbar { padding: 15px 5%; }
     .hero h1 { font-size: 3rem; }
 }
+/* ==================== ABOUT SECTION – CHỮ TO HƠN, ĐẸP HƠN ==================== */
+
+/* Tiêu đề ABOUT ME to hơn + đậm + có bóng nhẹ */
+#about h2 {
+    font-size: 4.5rem !important;        /* to hơn hẳn */
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--orange), var(--turquoise));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
+}
+
+/* Đoạn giới thiệu bản thân – chữ to hơn, line-height thoải mái */
+#about p,
+#about .intro-text {
+    font-size: 1.35rem !important;       /* từ ~1rem lên 1.35rem */
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 25px;
+    max-width: 800px;
+}
+
+/* Các tiêu đề nhỏ: Education, Research, Skills… */
+#about h3,
+.education h3,
+.research h3,
+.skills h3 {
+    font-size: 1.8rem !important;
+    color: var(--orange);
+    margin: 35px 0 15px 0;
+    font-weight: 800;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Thêm thanh dọc màu turquoise bên trái cho đẹp */
+#about h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 70%;
+    background: var(--turquoise);
+    border-radius: 3px;
+}
+
+/* Nội dung dưới các tiêu đề nhỏ – chữ to hơn + đẹp */
+#about ul,
+#about li,
+.timeline-content p {
+    font-size: 1.25rem !important;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+/* Tên trường, kỹ năng… làm nổi bật hơn */
+strong {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+/* Email & GitHub link to hơn + đẹp hơn */
+.personal-info a,
+#about a[href^="mailto:"],
+#about a[href^="https://github.com"] {
+    font-size: 1.4rem !important;
+    font-weight: 700;
+}
+.footer-bar {
+    width: 100%;
+    height: 12px;                   /* dày ~0.7–0.8cm */
+    background: linear-gradient(90deg, 
+        #ff7f50 0%, 
+        #ff9966 30%, 
+        #40E0D0 70%, 
+        #40E0D0 100%
+    );
+    margin-top: 120px;
+    box-shadow: 
+        0 -6px 20px rgba(255,127,80,0.6),
+        0 -10px 30px rgba(64,224,208,0.5);
+    border-radius: 6px 6px 0 0;
+}
