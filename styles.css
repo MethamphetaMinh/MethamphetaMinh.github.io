@@ -96,7 +96,7 @@ h2 {
         90deg,
         transparent 0%,
         rgba(255, 255, 255, 0.6) 5%, 
-        rgba(64, 224, 208, 0.8) 10%, 
+        var(--turquoise) 10%, /* Dải chính (Turquoise Rực) */
         transparent 20% 
     );
     background-size: 50% 100%; 
