@@ -76,7 +76,8 @@ h2 {
     overflow: hidden;
     /* GRADIENT 70/30 */
     background: linear-gradient(
-        to right, 
+        to right,
+        transparent 0%,
         var(--orange-text) 70%, 
         var(--turquoise) 70%     
     );
