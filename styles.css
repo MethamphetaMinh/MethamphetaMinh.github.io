@@ -21,77 +21,72 @@ body {
 }
 
 /* ==================== NAVBAR ==================== */
-/* ==================== NAVBAR – ĐẸP CHUẨN NHƯ HÌNH BÊN PHẢI ==================== */
-@keyframes scan-flow {
-    from { background-position: -200% 0; }
-    to { background-position: 200% 0; }
+/* ==================== NAVBAR – PHIÊN BẢN ĐẸP NHẤT & ỔN ĐỊNH NHẤT ==================== */
+@keyframes shine {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
 }
 
 .navbar {
-    position: relative;
-    overflow: hidden;
-    /* THAY THẾ background-color BẰNG GRADIENT */
-    background: linear-gradient(
-        to right,
-        var(--orange-text), /* #ff7f50 (Bên trái) */
-        var(--turquoise)    /* #40E0D0 (Bên phải) */
-    );
-
-    padding: 15px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--dark-text); /* Viền màu tối */
-}
-
-
-/* Hover → đảo ngược mượt mà 30% cam → 70% turquoise */
-.navbar:hover {
-    background: linear-gradient(to right,
-        #ff7f50 0%,
-        #ff7f50 30%,
-        #40E0D0 30.01%,
+    background: linear-gradient(90deg, 
+        #ff7f50 0%, 
+        #ff9a75 30%, 
+        #40E0D0 70%, 
         #40E0D0 100%
     );
-    border-bottom-color: #40E0D0;
-    box-shadow: 0 15px 40px rgba(64, 224, 208, 0.6);
-    transform: translateY(-8px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 3px solid rgba(0,0,0,0.2);
+    transition: all 0.6s ease;
 }
 
-/* Hiệu ứng tia sáng quét ngang (giữ nguyên đẹp) */
-.navbar::before {
+/* Khi hover: đảo màu + nổi lên */
+.navbar:hover {
+    background: linear-gradient(90deg, 
+        #40E0D0 0%, 
+        #5ee5d5 30%, 
+        #ff7f50 70%, 
+        #ff7f50 100%
+    );
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(64, 224, 208, 0.5);
+    border-bottom-color: #ff7f50;
+}
+
+/* Hiệu ứng tia sáng quét ngang (siêu mượt, không che gradient) */
+.navbar::after {
     content: '';
     position: absolute;
-    inset: 0;
+    top: 0; left: -100%;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(90deg,
         transparent,
-        rgba(255,255,255,0.3) 15%,
-        rgba(64,224,208,0.8) 22%,
-        transparent 35%
+        rgba(255,255,255,0.4),
+        transparent
     );
-    background-size: 300% 100%;
-    animation: scanline 12s linear infinite;
+    animation: shine 4s ease-in-out infinite;
     pointer-events: none;
-    opacity: 0.7;
-    z-index: 1;
-    transition: opacity 0.6s;
 }
 
-.navbar:hover::before {
-    opacity: 0.3;
-}
-
-/* Chữ luôn nổi trên cùng */
+/* Chữ luôn nổi bật */
 .logo a,
 .nav-links a {
     position: relative;
-    z-index: 10;
+    z-index: 2;
     color: #000 !important;
     font-weight: 800;
     text-decoration: none;
-    font-size: 1.1rem;
+    transition: all 0.3s;
 }
 
 .logo a {
@@ -101,10 +96,12 @@ body {
 
 .nav-links a {
     margin-left: 35px;
+    font-size: 1.15rem;
 }
 
 .nav-links a:hover {
-    color: #000;
+    color: #111 !important;
+    text-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 
 /* ==================== CÁC PHẦN KHÁC ==================== */
