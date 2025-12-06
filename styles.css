@@ -22,35 +22,30 @@ body {
 
 /* ==================== NAVBAR ==================== */
 /* ==================== NAVBAR – ĐẸP CHUẨN NHƯ HÌNH BÊN PHẢI ==================== */
-@keyframes scanline {
-    0%   { background-position: -300% 0; }
-    100% { background-position: 300% 0; }
+@keyframes scan-flow {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
 }
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 5%;
+    position: relative;
+    overflow: hidden;
+    /* THAY THẾ background-color BẰNG GRADIENT */
+    background: linear-gradient(
+        to right,
+        var(--orange-text), /* #ff7f50 (Bên trái) */
+        var(--turquoise)    /* #40E0D0 (Bên phải) */
+    );
+
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    top: 0;
     z-index: 1000;
-    overflow: hidden;
-    border-bottom: 4px solid #333;
-
-    /* GRADIENT MƯỢT MÀ 70% CAM → 30% TURQUOISE – CHUẨN 100% */
-    background: linear-gradient(to right,
-        #ff7f50 0%,
-        #ff7f50 70%,
-        /* Cam kéo dài đến đúng 70% */
-        #40E0D0 70.01%,     /* Turquoise bắt đầu ngay sau 70% */
-        #40E0D0 100%
-    );
-
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 2px solid var(--dark-text); /* Viền màu tối */
 }
+
 
 /* Hover → đảo ngược mượt mà 30% cam → 70% turquoise */
 .navbar:hover {
