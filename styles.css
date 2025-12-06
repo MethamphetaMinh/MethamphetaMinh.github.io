@@ -17,8 +17,8 @@
     --border-color: #DDDDDD; 
 
     /* MÀU SẮC ĐẶC BIỆT CỦA NAVBAR & CARD PROJECT */
-    --navbar-bg: var(--orange-text); /* SỬA: NỀN CAM SÁNG CHO NAVBAR */
-    --navbar-text: var(--dark-text); /* SỬA: CHỮ TỐI TRÊN NỀN CAM */
+    --navbar-bg: var(--orange-text); /* NỀN CAM SÁNG CHO NAVBAR */
+    --navbar-text: var(--dark-text); /* CHỮ TỐI TRÊN NỀN CAM */
     --card-bg: #F0F0F0; 
     --dark-card: #333333; 
     
@@ -80,7 +80,7 @@ h2 {
     align-items: center;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--dark-text); /* Dùng màu tối để viền nổi bật */
+    border-bottom: 2px solid var(--dark-text); /* Viền màu tối */
 }
 
 /* TẠO HIỆU ỨNG SCANLINE/FLOW */
@@ -92,12 +92,12 @@ h2 {
     width: 100%;
     height: 100%;
     
-    /* Dùng Linear Gradient để tạo hiệu ứng quét ngang */
+    /* SỬA LỖI: Tạo dải sáng màu Turquoise trên nền Cam */
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.4) 5%, /* Vạch sáng TRẮNG */
-        rgba(64, 224, 208, 0.8) 10%, /* Vạch chính (Turquoise nổi bật) */
+        rgba(255, 255, 255, 0.6) 5%, /* Dải sáng trắng mờ */
+        var(--turquoise) 10%, /* Dải chính (Turquoise Rực) */
         transparent 20% 
     );
     background-size: 50% 100%; 
@@ -147,14 +147,26 @@ h2 {
 }
 
 .cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    margin-top: 30px;
     background-color: var(--turquoise);
     color: var(--dark-text);
-    /* ... giữ các thuộc tính khác ... */
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.cta-button:hover {
+    background-color: #36c3b6; 
+    transform: translateY(-2px);
 }
 
 /* --- 4. ABOUT SECTION --- */
 #about {
-    /* ... giữ các thuộc tính khác ... */
+    text-align: left; 
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 #about h2 {
@@ -164,57 +176,60 @@ h2 {
 }
 
 .personal-info a {
-    color: var(--orange-text); /* Liên kết màu Cam Sáng */
+    color: var(--orange-text);
     margin-right: 15px;
 }
 
-/* ... giữ các thuộc tính khác ... */
+/* CSS ẢNH ĐẠI DIỆN TRONG ABOUT */
+.profile-img-container {
+    float: right;
+    margin-left: 20px;
+    width: 240px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid var(--turquoise);
+}
+
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#about::after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 .studying-tag {
     background-color: var(--orange-text); 
-    color: var(--navbar-text); /* Chữ sáng trên nền cam */
-    /* ... giữ các thuộc tính khác ... */
+    color: var(--navbar-text);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+/* --- TIMELINE/LIST STYLES --- */
+.timeline-content h3 {
+    margin-top: 20px;
+    color: var(--dark-text);
 }
 
 /* --- 5. PROJECTS SECTION STYLES (Nền Cam Sáng) --- */
 .projects-grid {
-    /* ... giữ các thuộc tính khác ... */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .project-card {
     background-color: var(--orange-text); 
     color: var(--dark-text); 
-    /* ... giữ các thuộc tính khác ... */
-}
-
-.project-info h3 {
-    color: var(--dark-text);
-    margin-top: 0;
-}
-
-.project-card a { 
-    color: var(--turquoise);
-    font-weight: bold;
-}
-
-/* --- 6. HIỆU ỨNG TETRIS --- */
-/* ... giữ nguyên code Tetris đã hoạt động ... */
-@keyframes tetris-fall {
-    0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    80% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { opacity: 0.2; }
-}
-
-.tetris-effect {
-    display: inline-block; position: relative; width: 25px; height: 30px; vertical-align: middle; margin-right: 15px;
-    --delay-1: 0s; --delay-2: 2s;
-}
-
-.tetris-effect::before, .tetris-effect::after {
-    content: ''; position: absolute; width: 10px; height: 10px; border: 1px solid var(--dark-text); 
-    box-shadow: 0 0 5px rgba(64, 224, 208, 0.5); animation: tetris-fall 6s ease-out infinite;
-}
-
-.tetris-effect::before { background-color: var(--turquoise); animation-delay: var(--delay-1); top: 5px; left: 0; }
-.tetris-effect::after { background-color: var(--orange-text); animation-delay: var(--delay-2); top: 0; left: 15px; transform-origin: bottom left; }
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--
