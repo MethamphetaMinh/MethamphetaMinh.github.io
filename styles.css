@@ -1,7 +1,3 @@
-/* ===================================
-   HA TUAN MINH PORTFOLIO – FINAL CSS (ĐÃ CHỈNH ẢNH TO HƠN + ĐẸP HƠN)
-   =================================== */
-
 :root {
     --orange:    #ff7f50;
     --turquoise: #40E0D0;
@@ -20,8 +16,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/* ==================== NAVBAR ==================== */
-/* ==================== NAVBAR – SIÊU PHẨM CÓ SCAN FLOW ĐỈNH CAO ==================== */
 @keyframes scan-flow {
     0%   { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
@@ -40,8 +34,6 @@ body {
     overflow: hidden;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-
-    /* Gradient nền chính – mượt mà cam → turquoise */
     background: linear-gradient(90deg,
         #ff7f50 0%,
         #ff8c61 35%,
@@ -53,7 +45,6 @@ body {
     transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover → đảo màu + nổi lên */
 .navbar:hover {
     background: linear-gradient(90deg,
         #40E0D0 0%,
@@ -66,7 +57,6 @@ body {
     border-bottom-color: #ff7f50;
 }
 
-/* SCAN FLOW SIÊU ĐẸP – tia sáng quét ngang liên tục */
 .navbar::before {
     content: '';
     position: absolute;
@@ -87,9 +77,8 @@ body {
     z-index: 1;
 }
 
-/* Thêm một lớp scan flow mạnh hơn khi hover */
 .navbar:hover::before {
-    animation-duration: 2s; /* quét nhanh hơn khi hover */
+    animation-duration: 2s;
     background: linear-gradient(90deg,
         transparent,
         rgba(255, 255, 255, 0.2),
@@ -99,7 +88,6 @@ body {
     );
 }
 
-/* Chữ luôn nổi bật trên mọi hiệu ứng */
 .logo a,
 .nav-links a {
     position: relative;
@@ -125,7 +113,7 @@ body {
     color: #000 !important;
     transform: scale(1.1);
 }
-/* ==================== CÁC PHẦN KHÁC ==================== */
+
 section { padding: 120px 5% 80px; max-width: 1200px; margin: 0 auto; }
 
 h2 {
@@ -137,7 +125,7 @@ h2 {
     letter-spacing: 2px;
 }
 
-/* Hero */
+
 .hero { text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 100px; }
 .hero h1 { font-size: 4.5rem; margin-bottom: 20px; color: var(--dark-text); }
 .hero h1 span { color: var(--turquoise); }
@@ -155,13 +143,13 @@ h2 {
 }
 .cta-button:hover { background:#36c3b6; transform:translateY(-6px); box-shadow:0 15px 30px rgba(64,224,208,.4); }
 
-/* ABOUT – ẢNH ĐÃ ĐƯỢC PHÓNG TO ĐẸP HƠN */
+
 #about h2 { color: var(--turquoise) !important; }
 
 .profile-img-container {
     float: right;
-    margin: 0 0 30px 50px;        /* tăng khoảng cách cho thoáng */
-    width: 260px;                 /* từ 200px → 260px (to hơn, đẹp hơn) */
+    margin: 0 0 30px 50px;        
+    width: 260px;                
     height: 260px;
     border-radius: 50%;
     overflow: hidden;
@@ -181,7 +169,6 @@ h2 {
     object-fit: cover;
 }
 
-/* Các phần còn lại giữ nguyên đẹp */
 .studying-tag {
     display: inline-block;
     background: var(--orange);
@@ -210,7 +197,6 @@ h2 {
 
 #contact h2 { color: var(--turquoise) !important; }
 
-/* Email & GitHub link – màu coral đồng bộ */
 .personal-info a,
 #contact a,
 footer a,
@@ -236,9 +222,7 @@ a[href^="https://github.com"]:hover {
     .navbar { padding: 15px 5%; }
     .hero h1 { font-size: 3rem; }
 }
-/* ==================== ABOUT SECTION – CHỮ TO HƠN, ĐẸP HƠN ==================== */
 
-/* Tiêu đề ABOUT ME to hơn + đậm + có bóng nhẹ */
 #about h2 {
     font-size: 4.5rem !important;
     font-weight: 900;
@@ -250,17 +234,17 @@ a[href^="https://github.com"]:hover {
         6px 6px 15px rgba(0,0,0,0.2);
     margin-bottom: 70px;
 }
-/* Đoạn giới thiệu bản thân – chữ to hơn, line-height thoải mái */
+
 #about p,
 #about .intro-text {
-    font-size: 1.35rem !important;       /* từ ~1rem lên 1.35rem */
+    font-size: 1.35rem !important;      
     line-height: 1.9;
     color: #444;
     margin-bottom: 25px;
     max-width: 800px;
 }
 
-/* Các tiêu đề nhỏ: Education, Research, Skills… */
+
 #about h3,
 .education h3,
 .research h3,
@@ -273,7 +257,7 @@ a[href^="https://github.com"]:hover {
     padding-left: 20px;
 }
 
-/* Thêm thanh dọc màu turquoise bên trái cho đẹp */
+
 #about h3::before {
     content: '';
     position: absolute;
@@ -286,7 +270,6 @@ a[href^="https://github.com"]:hover {
     border-radius: 3px;
 }
 
-/* Nội dung dưới các tiêu đề nhỏ – chữ to hơn + đẹp */
 #about ul,
 #about li,
 .timeline-content p {
@@ -296,13 +279,11 @@ a[href^="https://github.com"]:hover {
     margin-bottom: 12px;
 }
 
-/* Tên trường, kỹ năng… làm nổi bật hơn */
 strong {
     color: var(--orange);
     font-weight: 700;
 }
 
-/* Email & GitHub link to hơn + đẹp hơn */
 .personal-info a,
 #about a[href^="mailto:"],
 #about a[href^="https://github.com"] {
@@ -311,7 +292,7 @@ strong {
 }
 .footer-bar {
     width: 100%;
-    height: 12px;                   /* dày ~0.7–0.8cm */
+    height: 12px;                  
     background: linear-gradient(90deg,
         #ff7f50 0%,
         #ff9966 30%,
@@ -324,9 +305,7 @@ strong {
         0 -10px 30px rgba(64,224,208,0.5);
     border-radius: 6px 6px 0 0;
 }
-/* ==================== FEATURED SKILLS – MÀU CORAL ĐẸP, KHÔNG GRADIENT ==================== */
 
-/* Nếu tiêu đề là <h2> */
 #skills h2,
 .skills h2,
 .featured-skills h2 {
@@ -334,14 +313,13 @@ strong {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #ff7f50 !important;               /* Màu coral chính xác */
+    color: #ff7f50 !important;              
     text-shadow:
         3px 3px 0 #40E0D0,
         6px 6px 20px rgba(0,0,0,0.2);
     margin-bottom: 70px;
     text-align: center;
 }
-/* ==================== FEATURED PROJECTS – MÀU CORAL ĐẸP, KHÔNG GRADIENT ==================== */
 #projects h2,
 .projects h2,
 .featured-projects h2 {
@@ -349,14 +327,13 @@ strong {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #ff7f50 !important;                 /* Màu coral chuẩn */
+    color: #ff7f50 !important;                
     text-shadow:
         3px 3px 0 #40E0D0,
         6px 6px 20px rgba(0,0,0,0.2);
     margin-bottom: 70px;
     text-align: center;
 }
-/* --- 6. HIỆU ỨNG TETRIS --- */
 @keyframes tetris-fall {
     0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
     10% { opacity: 1; }
