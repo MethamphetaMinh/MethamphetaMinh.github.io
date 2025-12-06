@@ -307,3 +307,9 @@ h2 {
     left: 15px;
     transform-origin: bottom left; 
 }
+/* --- SỬA ĐỔI MÀU CHO TIÊU ĐỀ ABOUT ME --- */
+#about h2 {
+    /* Ghi đè quy tắc h2 chung (màu Cam Sáng) */
+    color: var(--turquoise) !important; 
+    text-align: center; /* Đảm bảo căn giữa */
+}
