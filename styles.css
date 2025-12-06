@@ -313,3 +313,9 @@ h2 {
     color: var(--turquoise) !important; 
     text-align: center; /* Đảm bảo căn giữa */
 }
+/* --- SỬA ĐỔI MÀU CHO TIÊU ĐỀ FEATURED PROJECTS --- */
+/* (Tiêu đề này nằm trong div có class projects-in-about) */
+.projects-in-about h2 {
+    color: var(--turquoise) !important;
+    text-align: center !important; /* Đảm bảo căn giữa, vì nó nằm trong About Section */
+}
