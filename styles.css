@@ -341,15 +341,18 @@ strong {
     margin-bottom: 70px;
     text-align: center;
 }
-
-/* Nếu tiêu đề là <h3> (nhỏ hơn một chút */
-#skills h3,
-.skills h3,
-.featured-skills h3 {
-    font-size: 2.8rem !important;
-    font-weight: 800;
-    color: #ff7f50 !important;
-    text-shadow: 2px 2px 0 #40E0D0;
-    margin: 50px 0 25px 0;
+/* ==================== FEATURED PROJECTS – MÀU CORAL ĐẸP, KHÔNG GRADIENT ==================== */
+#projects h2,
+.projects h2,
+.featured-projects h2 {
+    font-size: 4.2rem !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ff7f50 !important;                 /* Màu coral chuẩn */
+    text-shadow: 
+        3px 3px 0 #40E0D0,
+        6px 6px 20px rgba(0,0,0,0.2);
+    margin-bottom: 70px;
     text-align: center;
 }
