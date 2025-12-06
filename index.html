@@ -13,41 +13,15 @@
             <a href="#">Ha Tuan Minh</a>
         </div>
         <nav class="nav-links">
-            <a href="#projects">Projects</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">About & Projects</a> <a href="#contact">Contact</a>
         </nav>
     </header>
-    
+
     <section class="hero">
         <p>Hello, I'm</p>
         <h1>Ha Tuan Minh, a <span class="highlight">Creative Designer & Developer</span></h1>
         <p>I create modern and efficient user experiences.</p>
-        <a href="#projects" class="cta-button">View My Work</a>
-    </section>
-
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                 <img src="images/project1_thumb.png" alt="Project 1 Thumbnail">
-                <div class="project-info">
-                    <h3>Project Name 1</h3>
-                    <p>Designed UX/UI for a mobile financial management application.</p>
-                    <a href="#">Details &rarr;</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="images/project2_thumb.png" alt="Project 2 Thumbnail">
-                <div class="project-info">
-                    <h3>Project Name 2</h3>
-                    <p>Developed an e-commerce website using React framework.</p>
-                    <a href="#">Details &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <a href="#about" class="cta-button">View My Work</a> </section>
 
     <section id="about">
         <h2>About Me</h2>
@@ -87,36 +61,42 @@
             </ul>
         </div>
         
-        <div class="timeline-content">
+        <div class="skills-section" style="margin-top: 40px; text-align: center;">
             <h3 style="color: var(--dark-text);">Skills</h3>
-            <ul class="timeline-list" style="list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 15px; border-left: 2px solid var(--turquoise); padding-left: 15px;">
-                    <strong style="color: var(--turquoise);">Python</strong>
-                    <p style="margin: 0; font-size: 0.9em; color: var(--dark-text);">Application</p>
-                </li>
-            </ul>
+            <div class="skills-list" style="max-width: 800px; margin: 0 auto;">
+                <div class="skill-category" style="margin-bottom: 20px;">
+                    <strong style="color: var(--turquoise); display: block; margin-bottom: 10px;">Computer Vision & AI</strong>
+                    <span class="skill-tag" style="display: inline-block; background-color: var(--dark-card); color: var(--light-text); padding: 5px 15px; border-radius: 20px; margin: 5px; border: 1px solid var(--turquoise);">Python</span>
+                    <span class="skill-tag" style="display: inline-block; background-color: var(--dark-card); color: var(--light-text); padding: 5px 15px; border-radius: 20px; margin: 5px; border: 1px solid var(--turquoise);">PyTorch / TensorFlow</span>
+                </div>
+                <div class="skill-category">
+                    <strong style="color: var(--turquoise); display: block; margin-bottom: 10px;">Web Development</strong>
+                    <span class="skill-tag" style="display: inline-block; background-color: var(--dark-card); color: var(--light-text); padding: 5px 15px; border-radius: 20px; margin: 5px; border: 1px solid var(--turquoise);">HTML5 / CSS3</span>
+                    <span class="skill-tag" style="display: inline-block; background-color: var(--dark-card); color: var(--light-text); padding: 5px 15px; border-radius: 20px; margin: 5px; border: 1px solid var(--turquoise);">React / Vue</span>
+                </div>
+            </div>
         </div>
         
-    </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-list" style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <p>Vui lòng cập nhật chi tiết kỹ năng vào đây, hoặc tham khảo cấu trúc trong phần Giới thiệu.</p>
+        <div class="projects-in-about" style="margin-top: 60px;">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                     <img src="images/project1_thumb.png" alt="Project 1 Thumbnail">
+                    <div class="project-info">
+                        <h3>Project Name 1</h3>
+                        <p>Designed UX/UI for a mobile financial management application.</p>
+                        <a href="#">Details &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="images/project2_thumb.png" alt="Project 2 Thumbnail">
+                    <div class="project-info">
+                        <h3>Project Name 2</h3>
+                        <p>Developed an e-commerce website using React framework.</p>
+                        <a href="#">Details &rarr;</a>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </section>
-
-    <section id="contact" style="text-align: center;">
-        <h2>Contact</h2>
-        <p>I'm currently open for new projects or collaborations.</p>
-        
-        <a href="mailto:herewego@gmailc.om" class="cta-button">
-            Email Me: herewego@gmailc.om
-        </a>
-    </section>
-
-    <footer>
-        <p style="text-align: center; padding: 20px; font-size: 0.8em; border-top: 1px solid var(--border-color); color: var(--light-text);">&copy; 2025 Ha Tuan Minh. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
