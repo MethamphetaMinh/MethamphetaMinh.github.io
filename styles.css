@@ -360,3 +360,117 @@ strong {
 .tetris-effect::before { background-color: var(--turquoise); animation-delay: var(--delay-1); top: 5px; left: 0; }
 .tetris-effect::after { background-color: var(--orange-text); animation-delay: var(--delay-2); top: 0; left: 15px; transform-origin: bottom left;
 }
+/* --- BACKGROUND SQUARES STYLES --- */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    pointer-events: none; 
+    overflow: hidden;
+}
+
+.animated-background .square {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    /* SỬ DỤNG MÀU TÍCH HỢP CHO TURQUOISE VÀ ORANGE/CORAL */
+    background-color: var(--color); 
+    border-radius: 5px;
+    opacity: 0;
+    
+    left: var(--x); 
+    top: var(--y); 
+    
+    animation: float var(--duration) linear infinite;
+    animation-delay: var(--delay);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    /* Làm cho các ô vuông trong suốt hơn một chút */
+    opacity: 0.15 !important; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* Đảm bảo opacity được duy trì ở 0.15 khi hoạt hình chạy */
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.15; /* Giữ opacity thấp */
+    }
+    50% {
+        transform: translate(100px, 100px) rotate(180deg) scale(1.2);
+        opacity: 0.1;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg) scale(1);
+        opacity: 0;
+    }
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (min-width: 1200px) {
+    .animated-background .square {
+        /* Dồn sang phải */
+        left: calc(var(--x) * 0.2 + 80%); 
+        top: calc(var(--y));
+    }
+    /* Các ô vuông ở phía trái */
+    .animated-background .square:nth-child(even) {
+        left: calc(var(--x) * 0.2 - 10%); 
+    }
+}
+
+@media (max-width: 1200px) {
+    .animated-background {
+        display: none;
+    }
+}
+@media (max-width: 992px) {
+    .profile-img-container {
+        float: none; 
+        margin: 0 auto 30px; 
+        display: block;
+    }
+    .personal-info {
+        text-align: center;
+    }
+    #about p {
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 15px 3%; }
+    .logo a { font-size: 1.8rem; }
+    .nav-links a { margin-left: 15px; font-size: 1.05rem; }
+
+    .hero h1 { font-size: 3rem; }
+    .hero p { font-size: 1.3rem; }
+    
+    section { padding: 80px 3% 40px; }
+    h2 { font-size: 2.5rem; margin-bottom: 40px; }
+
+    #about h2 { font-size: 3.5rem !important; }
+    #about p { font-size: 1.15rem !important; }
+
+    .profile-img-container { width: 200px; height: 200px; }
+    .projects-grid { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+    .cta-button {
+        padding: 12px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1.1rem; }
+    
+    #about h2 { font-size: 2.8rem !important; }
+}
